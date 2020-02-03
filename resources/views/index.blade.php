@@ -1,5 +1,6 @@
 <script type="text/javascript" src="{{route('/')}}/js/gdpr.js"></script>
 <link rel="stylesheet" type="text/css" href="{{route('/')}}/css/gdpr.css">
+@php($policyVar = 'policyUrl_' . app()->getLocale())
 
 <div class="cookiebanner" id="cookiebanner">
     <div class="section section--light section--sml">
@@ -23,7 +24,6 @@
     <div class="cookie-modal__content">
         <h2 class="text--center">{{ trans('cookieConsent::texts.settings_notice_gdpr') }}</h2>
         <p class="modal__description">
-            {{ $policyVar = 'policyUrl_' . app()->getLocale() }}
             {!! trans('cookieConsent::texts.body_notice_gdpr', ['policyUrl' => config("cookie-consent.$policyVar")]) !!}
         </p>
         <br>
