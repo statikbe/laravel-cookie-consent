@@ -2,7 +2,7 @@
 
 The package includes a script & styling for a cookie banner and a modal where the visitor can select his/her cookie preferences.
 
-This packag is mainly based on the package from spatie: https://github.com/spatie/laravel-cookie-consent
+This package is mainly based on the one from spatie: https://github.com/spatie/laravel-cookie-consent
 
 With the only exception that you can choose which cookies you enable.
 This only works when Google Tag Manager is correctly configured (some regex config based on the value set in the cookie).
