@@ -2,6 +2,9 @@
 
 All notable changes to `Cookie Consent package` will be documented in this file.
 
+## Version 1.0.1
+### Updated
+- Changed policyUrl variable, set it on the top of snippet with @php()
 
 ## Version 1.0.0
 ### Added
