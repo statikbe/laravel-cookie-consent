@@ -81,11 +81,11 @@
                 (checkboxvar.defaultChecked && !checkboxvar.checked) ||
                 !checkboxvar.checked
             ) {
-                labelvar.innerHTML = " niet actief";
+                labelvar.innerHTML = " Niet actief";
                 checkboxvar.checked = false;
                 checkboxvar.defaultChecked = false;
             } else {
-                labelvar.innerHTML = " actief";
+                labelvar.innerHTML = " Actief";
                 checkboxvar.checked = true;
             }
         };
