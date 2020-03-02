@@ -1,5 +1,5 @@
-<script type="text/javascript" src="{{route('/')}}/js/gdpr.js"></script>
-<link rel="stylesheet" type="text/css" href="{{route('/')}}/css/gdpr.css">
+<script type="text/javascript" src="{{asset('js/gdpr.js')}}"></script>
+<link rel="stylesheet" type="text/css" href="{{asset('css/gdpr.css')}}">
 @php($policyVar = 'policyUrl_' . app()->getLocale())
 
 <div class="cookiebanner" id="cookiebanner">
