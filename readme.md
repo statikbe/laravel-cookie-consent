@@ -19,23 +19,7 @@ The package will automatically register itself.
 
 First of all **you need to** publish the javascript and css files:
 ```bash
-php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="cookieConsent"
-```
-
-Publish the config-file:
-
-```bash
-php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="config"
-```
-
-This is the contents of the published config-file:
-This will read the policy urls from your env. 
-```php
-return [
-    'policyUrl_nl' => env('COOKIE_POLICY_URL_NL', null),
-    'policyUrl_en' => env('COOKIE_POLICY_URL_EN', null),
-    'policyUrl_fr' => env('COOKIE_POLICY_URL_FR', null)
-];
+php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="public"
 ```
 
 ## Usage
@@ -94,6 +78,34 @@ The `cookie-settings` view file is just a snippet you need to place somewhere on
 ```
 
 This gives your visitor the opportunity to change the settings again.
+### Publishing
+#### Config
+
+```bash
+php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="config"
+```
+This is the contents of the published config-file:
+This will read the policy urls from your env. 
+```php
+return [
+    'policyUrl_nl' => env('COOKIE_POLICY_URL_NL', null),
+    'policyUrl_en' => env('COOKIE_POLICY_URL_EN', null),
+    'policyUrl_fr' => env('COOKIE_POLICY_URL_FR', null)
+];
+```
+
+#### Translations
+
+```bash
+php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="lang"
+```
+
+#### Views
+
+```bash
+php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="views"
+```
+
 
 ## Security
 

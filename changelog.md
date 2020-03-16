@@ -2,6 +2,11 @@
 
 All notable changes to `Cookie Consent package` will be documented in this file.
 
+## Version 1.1.0
+### Updated
+- Placed the javascript and css inside public/vendor/ instead of the public/ folder. 
+- Changed publishing
+
 ## Version 1.0.3
 ### Updated
 - Fixed bug in middleware return when response has no body tag
