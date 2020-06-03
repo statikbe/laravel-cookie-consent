@@ -9,6 +9,7 @@
     data-cookie-value-both="{{ config('cookie-consent.cookie_value_both') }}"
     data-cookie-value-none="{{ config('cookie-consent.cookie_value_none') }}"
     data-cookie-expiration-days="{{ config('cookie-consent.cookie_expiration_days') }}"
+    data-ignored-paths="{{ implode(config('cookie-consent.ignored_paths'), ',') }}"
 >
     <div class="lcc-modal__content">
         <h2 id="lcc-modal-alert-label" class="lcc-modal__title">

@@ -7,6 +7,7 @@ return [
     'cookie_value_both' => 'true',
     'cookie_value_none' => 'false',
     'cookie_expiration_days' => '365',
+    'ignored_paths' => [],
     'policy_url_en' => env('COOKIE_POLICY_URL_EN', null),
     'policy_url_fr' => env('COOKIE_POLICY_URL_FR', null),
     'policy_url_nl' => env('COOKIE_POLICY_URL_NL', null),
