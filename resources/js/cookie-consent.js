@@ -1,5 +1,3 @@
-const url = require('url');
-
 import {
     getCookie,
     setCookie
@@ -55,7 +53,7 @@ function initialize() {
 
     addEventListener('click', '.js-lcc-accept', function () {
 
-        setCookie(COOKIE_KEY, COOKIE_EXPIRATION_DAYS, 'true');
+        updateCookie('true');
 
         hideModal(modalSettings, true);
         hideModal(modalAlert);
@@ -134,5 +132,15 @@ function saveSettings() {
         cookieValue = COOKIE_VALUE_NONE;
     }
 
+    updateCookie(cookieValue);
+}
+
+function updateCookie(cookieValue) {
+
     setCookie(COOKIE_KEY, COOKIE_EXPIRATION_DAYS, cookieValue);
+
+    //  Fire GTM pageview event if dataLayer is found
+    if (window.dataLayer) {
+        window.dataLayer.push({event: 'pageview'});
+    }
 }
