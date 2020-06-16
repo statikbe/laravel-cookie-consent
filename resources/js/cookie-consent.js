@@ -27,7 +27,8 @@ const COOKIE_VALUE_ANALYTICS = modalAlert.dataset.cookieValueAnalytics || '2';
 const COOKIE_VALUE_MARKETING = modalAlert.dataset.cookieValueMarketing || '3';
 const COOKIE_VALUE_NONE = modalAlert.dataset.cookieValueNone || 'false';
 const COOKIE_VALUE_BOTH = modalAlert.dataset.cookieValueBoth || 'true';
-const COOKIE_EXPIRATION_DAYS = modalAlert.dataset.cookieExpirationDays || '365'
+const COOKIE_EXPIRATION_DAYS = modalAlert.dataset.cookieExpirationDays || '365';
+const GTM_EVENT = modalAlert.dataset.gtmEvent || 'pageview';
 
 const ignoredPaths = modalAlert.dataset.ignoredPaths || null;
 
@@ -77,6 +78,7 @@ function toggleModalSettings() {
         
         backdrop.addEventListener('click', backdropListener);
         document.body.addEventListener('keydown', keyboardListener);
+        
     } else {
 
         hideModalSettings();
