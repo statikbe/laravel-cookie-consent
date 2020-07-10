@@ -11,6 +11,7 @@ return [
     'setting_essential_text' => 'sont nécessaires afin d\'assurer le bon fonctionnement du site et l\'enregistrement de vos préférences (p. ex. votre langue et votre région).',
     'setting_marketing' => 'Cookies marketing',
     'setting_marketing_text' => 'ont pour but de personnaliser votre expérience et de vous envoyer du contenu et des offres pertinents sur ce site et sur d\'autres.',
+    'settings_accept_all' => 'Accepter tous les cookies',
     'settings_cancel' => 'Annuler',
     'settings_close' => 'Fermer',
     'settings_save' => 'Enregistrer',

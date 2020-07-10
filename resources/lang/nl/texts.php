@@ -11,6 +11,7 @@ return [
     'setting_essential_text' => 'zijn noodzakelijke cookies die ervoor zorgen dat de website goed functioneert en dat je voorkeuren (bv. taal, regio) goed worden opgeslagen.',
     'setting_marketing' => 'Marketingcookies',
     'setting_marketing_text' => 'hebben als doel je ervaring te personaliseren en je relevante inhoud en aanbiedingen te sturen op deze en andere websites.',
+    'settings_accept_all' => 'Alle cookies aanvaarden',
     'settings_cancel' => 'Annuleren',
     'settings_close' => 'Sluiten',
     'settings_save' => 'Opslaan',

@@ -11,6 +11,7 @@ return [
     'setting_essential_text' => 'are essential cookies that ensure that the website functions properly and that your preferences (e.g. language, region) are saved.',
     'setting_marketing' => 'Marketing cookies',
     'setting_marketing_text' => 'allow us to personalise your experience and to send you relevant content and offers, on this website and other websites.',
+    'settings_accept_all' => 'Accept all cookies',
     'settings_cancel' => 'Cancel',
     'settings_close' => 'Close',
     'settings_save' => 'Save',

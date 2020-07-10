@@ -44,6 +44,11 @@
             <p id="lcc-modal-settings-desc" class="lcc-text">
                 @lang('cookie-consent::texts.settings_text', [ 'policyUrl' => config("cookie-consent.policy_url_$locale")]) ])
             </p>
+            <div class="lcc-modal__section lcc-u-text-center">
+                <button type="button" class="lcc-button js-lcc-accept">
+                    @lang('cookie-consent::texts.settings_accept_all')
+                </button>
+            </div>
             <div class="lcc-modal__section">
                 <label for="lcc-checkbox-essential" class="lcc-label">
                     <input type="checkbox" id="lcc-checkbox-essential" disabled="disabled" checked="checked">
