@@ -22,6 +22,10 @@ First of all **you need to** publish the javascript and css files:
 php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="public"
 ```
 
+Include the css/cookie-consent.css & js/cookie-consent.js into your base.blade.php or any other base template you use.
+```
+<link rel="stylesheet" type="text/css" href="{{asset("vendor/cookie-consent/css/cookie-consent.css")}}">
+```
 ## Usage
 
 Instead of including a snippet in your view, we will automatically add it. You only need to add `Statikbe\CookieConsent\CookieConsentMiddleware` to your kernel:
@@ -54,8 +58,8 @@ This will publish this file to `resources/lang/vendor/cookieConsent/en/texts.php
  ```php
  
  return [
-     'title_cookiebanner' => 'This website uses cookies to improve your browsing experience. By clicking on ‘Agree’, you accept the use of these cookies.',
-     'active_gdpr' => 'Active',
+     'alert_title' => 'Deze website gebruikt cookies',
+     'setting_analytics' => 'Analytische cookies',
  ];
  ```
  
@@ -74,7 +78,7 @@ This will copy the `index`  view file over to `resources/views/vendor/cookieCons
 The `cookie-settings` view file is just a snippet you need to place somewhere onto your page. Most preferably in the footer next to the url of your cookie policy.
 
 ```html 
-<a href="#" class="js-cookie-settings">{{ trans('cookieConsent::texts.settings_notice_gdpr') }}</a>
+<a href="#" class="js-lcc-modal-alert">{'cookie-consent::texts.alert_settings'|translate}</a>
 ```
 
 This gives your visitor the opportunity to change the settings again.
@@ -88,11 +92,20 @@ This is the contents of the published config-file:
 This will read the policy urls from your env. 
 ```php
 return [
-    'policyUrl_nl' => env('COOKIE_POLICY_URL_NL', null),
-    'policyUrl_en' => env('COOKIE_POLICY_URL_EN', null),
-    'policyUrl_fr' => env('COOKIE_POLICY_URL_FR', null)
+    'cookie_key' => '__cookie_consent',
+    'cookie_value_analytics' => '2',
+    'cookie_value_marketing' => '3',
+    'cookie_value_both' => 'true',
+    'cookie_value_none' => 'false',
+    'cookie_expiration_days' => '365',
+    'gtm_event' => 'pageview',
+    'ignored_paths' => [],
+    'policy_url_en' => env('COOKIE_POLICY_URL_EN', null),
+    'policy_url_fr' => env('COOKIE_POLICY_URL_FR', null),
+    'policy_url_nl' => env('COOKIE_POLICY_URL_NL', null),
 ];
 ```
+You can customize some settings that work with your GTM.
 
 #### Translations
 

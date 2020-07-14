@@ -2,6 +2,10 @@
 
 All notable changes to `Cookie Consent package` will be documented in this file.
 
+## Version 1.2.0
+### Updated
+- Rework of the frontend. Modal is now more generic.
+- config has been reworked to alter cookie settings
 ## Version 1.1.0
 ### Updated
 - Placed the javascript and css inside public/vendor/ instead of the public/ folder. 
