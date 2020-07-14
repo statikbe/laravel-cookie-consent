@@ -9,11 +9,11 @@ class CookieConsentServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'cookieConsent');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'cookie-consent');
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'cookieConsent');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'cookie-consent');
 
-        $this->app['view']->composer('cookieConsent::index', function (View $view) {
+        $this->app['view']->composer('cookie-consent::index', function (View $view) {
         });
 
         // Publishing is only necessary when using the CLI.
@@ -34,15 +34,15 @@ class CookieConsentServiceProvider extends ServiceProvider
         ], 'config');
 
         $this->publishes([
-            __DIR__.'/../public/' => public_path('vendor/cookieConsent'),
+            __DIR__.'/../public/' => public_path('vendor/cookie-consent'),
         ], 'public');
 
         $this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/cookieConsent'),
+            __DIR__.'/../resources/views' => base_path('resources/views/vendor/cookie-consent'),
         ], 'views');
 
         $this->publishes([
-            __DIR__.'/../resources/lang' => base_path('resources/lang/vendor/cookieConsent'),
+            __DIR__.'/../resources/lang' => base_path('resources/lang/vendor/cookie-consent'),
         ], 'lang');
     }
 }
