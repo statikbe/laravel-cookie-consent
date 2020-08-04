@@ -72,7 +72,7 @@ function toggleModalSettings() {
 
     if (isHidden(modalSettings)) {
 
-        showModal(modalSettings, true);
+        showModal(modalSettings, !isHidden(modalAlert));
 
         initSettings();
         
