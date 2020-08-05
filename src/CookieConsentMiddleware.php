@@ -44,7 +44,7 @@ class CookieConsentMiddleware
 
         $content = ''
             .substr($content, 0, $closingBodyTagPosition)
-            .view('cookieConsent::index')->render()
+            .view('cookie-consent::index')->render()
             .substr($content, $closingBodyTagPosition);
 
         return $response->setContent($content);
