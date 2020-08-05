@@ -107,7 +107,7 @@ function toggleModalSettings() {
         backdrop.removeEventListener('click', backdropListener);
         document.body.removeEventListener('keydown', keyboardListener);
         
-        hideModal(modalSettings, true);
+        hideModal(modalSettings, !getCookie(COOKIE_KEY));
 
         if (!getCookie(COOKIE_KEY)) {
             showModal(modalAlert, true);
