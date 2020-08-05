@@ -41,9 +41,11 @@ function initialize() {
 
     const isRobot = /bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex/i.test(navigator.userAgent);
 
-    if (isIgnoredPage || isRobot || getCookie(COOKIE_KEY) || !modalAlert || !modalSettings) return;
+    if (isIgnoredPage || isRobot || !modalAlert || !modalSettings) return;
 
-    showModal(modalAlert);
+    if (!getCookie(COOKIE_KEY)) {
+        showModal(modalAlert);
+    }
 
     initSettings();
 
@@ -141,8 +143,8 @@ function updateCookie(cookieValue) {
 
     setCookie(COOKIE_KEY, COOKIE_EXPIRATION_DAYS, cookieValue);
 
-    //  Fire GTM pageview event if dataLayer is found
+    //  Fire GTM event if dataLayer is found
     if (window.dataLayer) {
-        window.dataLayer.push({event: 'pageview'});
+        window.dataLayer.push({event: GTM_EVENT});
     }
 }
