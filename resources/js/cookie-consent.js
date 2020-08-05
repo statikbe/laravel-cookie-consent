@@ -41,9 +41,9 @@ function initialize() {
 
     const isRobot = /bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex/i.test(navigator.userAgent);
 
-    if (isIgnoredPage || isRobot || !modalAlert || !modalSettings) return;
+    if (isRobot || !modalAlert || !modalSettings) return;
 
-    if (!getCookie(COOKIE_KEY)) {
+    if (!getCookie(COOKIE_KEY) && !isIgnoredPage) {
         showModal(modalAlert);
     }
 
