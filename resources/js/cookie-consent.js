@@ -108,7 +108,10 @@ function toggleModalSettings() {
         document.body.removeEventListener('keydown', keyboardListener);
         
         hideModal(modalSettings, true);
-        showModal(modalAlert, true);
+
+        if (!getCookie(COOKIE_KEY)) {
+            showModal(modalAlert, true);
+        }
 
         modalSettingsTrigger.focus();
     }
