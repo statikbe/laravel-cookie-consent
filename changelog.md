@@ -2,6 +2,9 @@
 
 All notable changes to `Cookie Consent package` will be documented in this file.
 
+## Version 1.2.1
+### Updated
+- Javascript changes for opening/altering modal
 ## Version 1.2.0
 ### Updated
 - Rework of the frontend. Modal is now more generic.

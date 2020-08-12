@@ -41,9 +41,11 @@ function initialize() {
 
     const isRobot = /bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex/i.test(navigator.userAgent);
 
-    if (isIgnoredPage || isRobot || getCookie(COOKIE_KEY) || !modalAlert || !modalSettings) return;
+    if (isRobot || !modalAlert || !modalSettings) return;
 
-    showModal(modalAlert);
+    if (!getCookie(COOKIE_KEY) && !isIgnoredPage) {
+        showModal(modalAlert);
+    }
 
     initSettings();
 
@@ -72,7 +74,7 @@ function toggleModalSettings() {
 
     if (isHidden(modalSettings)) {
 
-        showModal(modalSettings, true);
+        showModal(modalSettings, !isHidden(modalAlert));
 
         initSettings();
         
@@ -105,8 +107,11 @@ function toggleModalSettings() {
         backdrop.removeEventListener('click', backdropListener);
         document.body.removeEventListener('keydown', keyboardListener);
         
-        hideModal(modalSettings, true);
-        showModal(modalAlert, true);
+        hideModal(modalSettings, !getCookie(COOKIE_KEY));
+
+        if (!getCookie(COOKIE_KEY)) {
+            showModal(modalAlert, true);
+        }
 
         modalSettingsTrigger.focus();
     }
@@ -141,8 +146,8 @@ function updateCookie(cookieValue) {
 
     setCookie(COOKIE_KEY, COOKIE_EXPIRATION_DAYS, cookieValue);
 
-    //  Fire GTM pageview event if dataLayer is found
+    //  Fire GTM event if dataLayer is found
     if (window.dataLayer) {
-        window.dataLayer.push({event: 'pageview'});
+        window.dataLayer.push({event: GTM_EVENT});
     }
 }
