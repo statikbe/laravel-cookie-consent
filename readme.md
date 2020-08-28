@@ -78,7 +78,7 @@ This will copy the `index`  view file over to `resources/views/vendor/cookieCons
 The `cookie-settings` view file is just a snippet you need to place somewhere onto your page. Most preferably in the footer next to the url of your cookie policy.
 
 ```html 
-<a href="#" class="js-lcc-modal-alert">{'cookie-consent::texts.alert_settings'|translate}</a>
+<a href="javascript:void(0)" class="js-lcc-settings-toggle">'cookie-consent::texts.alert_settings'|translate}</a>
 ```
 
 This gives your visitor the opportunity to change the settings again.
