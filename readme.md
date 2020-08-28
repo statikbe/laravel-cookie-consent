@@ -22,10 +22,12 @@ First of all **you need to** publish the javascript and css files:
 php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="public"
 ```
 
-Include the css/cookie-consent.css & js/cookie-consent.js into your base.blade.php or any other base template you use.
+Include the css/cookie-consent.css into your base.blade.php or any other base template you use.
 ```
 <link rel="stylesheet" type="text/css" href="{{asset("vendor/cookie-consent/css/cookie-consent.css")}}">
 ```
+
+The javascript file is included in the cookie snippet and will be added at the end of your body.
 ## Usage
 
 Instead of including a snippet in your view, we will automatically add it. You only need to add `Statikbe\CookieConsent\CookieConsentMiddleware` to your kernel:
@@ -78,7 +80,7 @@ This will copy the `index`  view file over to `resources/views/vendor/cookieCons
 The `cookie-settings` view file is just a snippet you need to place somewhere onto your page. Most preferably in the footer next to the url of your cookie policy.
 
 ```html 
-<a href="#" class="js-lcc-modal-alert">{'cookie-consent::texts.alert_settings'|translate}</a>
+<a href="javascript:void(0)" class="js-lcc-settings-toggle">@lang('cookie-consent::texts.alert_settings')</a>
 ```
 
 This gives your visitor the opportunity to change the settings again.
