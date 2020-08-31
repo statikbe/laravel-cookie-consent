@@ -7,6 +7,18 @@ This package is mainly based on the one from spatie: https://github.com/spatie/l
 With the only exception that you can choose which cookies you enable.
 This only works when Google Tag Manager is correctly configured (some regex config based on the value set in the cookie).
 
+* [Installation](#installation)
+* [Usage](#usage)
+* [Customising the dialog texts](#customising-the-dialog-texts)
+    + [Customising the dialog contents](#customising-the-dialog-contents)
+    + [Publishing](#publishing)
+      - [Config](#config)
+      - [Translations](#translations)
+      - [Views](#views)
+* [Configure Google Tag Manager](#configure-google-tag-manager)
+* [Security](#security)
+* [License](#license)
+   
 ## Installation
 
 You can install the package via composer:
@@ -120,6 +132,9 @@ php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServi
 ```bash
 php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="views"
 ```
+
+## Configure Google Tag Manager
+All the steps to configure your Google Tag Manager can be found [here](docs/google-tag-manager.md).
 
 
 ## Security

@@ -2,6 +2,15 @@
 
 All notable changes to `Cookie Consent package` will be documented in this file.
 
+## Version 1.2.3
+### Added
+- Docs to configure Google Tag Manager
+### Updated
+- Added docs for Tag Manager to readme page
+- Added TOC
+## Version 1.2.2
+### Updated
+- Fixed readme file to contain correct snippets
 ## Version 1.2.1
 ### Updated
 - Javascript changes for opening/altering modal
