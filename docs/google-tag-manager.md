@@ -23,7 +23,16 @@
 ## Step 3: Add 'no consent' trigger as exception to every tag
 Open tag > beneath the title ‘triggering’ click the plus icon next to exceptions and select the right trigger.
 
-![Add no consent trigger](img/step3.png?raw=true "Add no consent trigger") 
+![Add no consent trigger](img/step-exceptions.png?raw=true "Add no consent trigger") 
+_Exceptions on a trigger_
+
+### No tags found?
+It's possible that there are no tags created yet. If that's the case, create a new one (click right top 'new')
+Give it the name `Google Analytics` (Or you can give this another name, but keep that in mind when you follow the next steps).
+ 
+ For Tag Type you choose `Google Analytics: Universal Analytics`.
+![Create tag](img/step3.png?raw=true "Create tag")
+_Tag with some settings already set after config_
 
 ## Step 4: Create `analytic cookies` trigger
 - Name: `GDPR - Consent for analytical cookies`
@@ -39,7 +48,7 @@ Open tag > beneath the title ‘triggering’ click the plus icon next to except
 ## Step 5: Add `analytic cookies` trigger as exception to all analytic tags  
 Examples of analytic cookies are: Google Analytics, Hotjar, Matomo Analytics,...
 
-![Add analytic cookie trigger exception](img/step5.png?raw=true "Add analytic cookie trigger exception") 
+![Add analytic cookie trigger exception](img/step-exceptions.png?raw=true "Add analytic cookie trigger exception") 
 
 ## Step 6: Add `Marketing cookie` trigger
 - Name: `GDPR - Consent for marketing cookies`
@@ -56,7 +65,7 @@ Examples of analytic cookies are: Google Analytics, Hotjar, Matomo Analytics,...
 ## Step 7: Add `marketing cookies` trigger as exception to all marketing tags
 Examples of marketing cookies are: Facebook Pixel, Google Ads conversion tags, Online pop ups/surveys, Doubleclick, ...
 
-![Add marketing cookies tag as exception](img/step7.png?raw=true "Add marketing cookies tag as exception")
+You do the same as you do in Step 3 and Step 5, Add exception to your trigger.
 
 ## Step 8: Add new trigger `Cookie refresh`
 - Name: `Cookie refresh`

@@ -2,6 +2,10 @@
 
 All notable changes to `Cookie Consent package` will be documented in this file.
 
+## Version 1.2.4
+### Updated
+- Step 3 in google Tag Manager docs
+- Changed some of the images to be more up to date
 ## Version 1.2.3
 ### Added
 - Docs to configure Google Tag Manager
