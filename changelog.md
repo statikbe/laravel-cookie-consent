@@ -2,6 +2,9 @@
 
 All notable changes to `Cookie Consent package` will be documented in this file.
 
+## Version 1.2.6
+## Updated
+- Set default GTM event from pageview to cookie_refresh
 ## Version 1.2.5
 ### Removed
 - Removed obsolete parenthesis from index.tpl 
