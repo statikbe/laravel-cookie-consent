@@ -2,6 +2,9 @@
 
 All notable changes to `Cookie Consent package` will be documented in this file.
 
+## Version 1.2.5
+### Removed
+- Removed obsolete parenthesis from index.tpl 
 ## Version 1.2.4
 ### Updated
 - Step 3 in google Tag Manager docs
