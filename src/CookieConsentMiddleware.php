@@ -18,11 +18,7 @@ class CookieConsentMiddleware
         if (! $this->containsBodyTag($response)) {
             return $response;
         }
-
-        if ($request->url() == config('cookie-consent.policyUrl_' . app()->getLocale())) {
-            return $response;
-        }
-
+        
         return $this->addCookieConsentScriptToResponse($response);
     }
 

@@ -2,8 +2,16 @@
 
 All notable changes to `Cookie Consent package` will be documented in this file.
 
+## 1.2.8
+### Updated
+- Added the ingored paths to readme file
+### Removed
+- Removed check if cookie policy page matches current url. Js handles this
+## Version 1.2.7
+### Updated
+- Added data attribute for gtm event
 ## Version 1.2.6
-## Updated
+### Updated
 - Set default GTM event from pageview to cookie_refresh
 ## Version 1.2.5
 ### Removed
