@@ -121,6 +121,10 @@ return [
 ```
 You can customize some settings that work with your GTM.
 
+#### Don't show modal on cookie policy page or other pages
+If you don't want the modal to be shown on certain pages you can add the relative url to the ignored paths setting
+```'ignored_paths => ['/en/cookie-policy']```
+
 #### Translations
 
 ```bash
