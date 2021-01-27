@@ -30,7 +30,7 @@ class CookieConsentMiddleware
     /**
      * @param \Illuminate\Http\Response $response
      *
-     * @return $this
+     * @return \Illuminate\Http\Response
      */
     protected function addCookieConsentScriptToResponse(Response $response)
     {

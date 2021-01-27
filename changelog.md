@@ -1,6 +1,11 @@
 # Changelog
 
 All notable changes to `Cookie Consent package` will be documented in this file.
+## 1.2.9
+### Fixed
+Last update had a breaking change, this is now fixed in this minor version.
+### Added
+Composer requirements
 
 ## 1.2.8
 ### Updated
