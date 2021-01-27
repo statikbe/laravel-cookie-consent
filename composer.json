@@ -1,7 +1,6 @@
 {
     "name": "statikbe/laravel-cookie-consent",
     "description": "Cookie consent modal for EU",
-    "license": "MIT",
     "authors": [
         {
             "name": "Kristof Serré",
@@ -11,6 +10,11 @@
     ],
     "homepage": "https://github.com/statikbe/laravel-cookie-consent",
     "keywords": ["Laravel", "cookie", "gdpr"],
+    "license": "MIT",
+    "require": {
+        "php": "^7.0|^8.0",
+        "illuminate/http": "^6.0|^7.0|^8.0"
+    },
     "autoload": {
         "psr-4": {
             "Statikbe\\CookieConsent\\": "src/"
