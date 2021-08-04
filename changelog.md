@@ -1,6 +1,14 @@
 # Changelog
 
 All notable changes to `Cookie Consent package` will be documented in this file.
+
+## 1.2.11
+
+### Updated
+- Updated documentation in Step 9 to be more clear.
+## 1.2.10
+### Updated
+- Updated wicg-insert library to resolve conflict when loaded in twice
 ## 1.2.9
 ### Fixed
 Last update had a breaking change, this is now fixed in this minor version.
