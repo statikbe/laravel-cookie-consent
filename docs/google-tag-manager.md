@@ -75,9 +75,9 @@ You do the same as you do in Step 3 and Step 5, Add exception to your trigger.
 
 ![Add trigger cookie refresh](img/step8.png?raw=true "Add trigger cookie refresh")
 
-## Step 9: Add `cookie refresh` trigger to the `Universal Analytics` tag
+## Step 9: Add the 'cookie refresh` trigger to the tags with `all pages`
 
-![Add cookie refresh to Univeral Analytics](img/step9.png?raw=true "Add cookie refresh to Univeral Analytics")
+![Add cookie refresh to all pages](img/step9.png?raw=true "Add cookie refresh to all pages")
 
 ## Step 10: Preview changes and check if the right tags get fired
 Check if the righ tag get's fired eg. when your site visitor only wants analytic cookies.
