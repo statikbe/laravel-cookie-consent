@@ -2,8 +2,10 @@
 
 All notable changes to `Cookie Consent package` will be documented in this file.
 
+## 1.2.12
+### Updated
+- Fixed english translation parameter for policyUrl
 ## 1.2.11
-
 ### Updated
 - Updated documentation in Step 9 to be more clear.
 ## 1.2.10
@@ -14,7 +16,6 @@ All notable changes to `Cookie Consent package` will be documented in this file.
 Last update had a breaking change, this is now fixed in this minor version.
 ### Added
 Composer requirements
-
 ## 1.2.8
 ### Updated
 - Added the ingored paths to readme file
@@ -23,6 +24,7 @@ Composer requirements
 ## Version 1.2.7
 ### Updated
 - Added data attribute for gtm event
+
 ## Version 1.2.6
 ### Updated
 - Set default GTM event from pageview to cookie_refresh
