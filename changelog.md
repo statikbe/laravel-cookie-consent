@@ -1,7 +1,10 @@
 # Changelog
 
 All notable changes to `Cookie Consent package` will be documented in this file.
-
+## 1.3.0
+### Updated
+- Updated to be compatible with laravel 9
+- Removed compatibility with laravel 6 & 7
 ## 1.2.12
 ### Updated
 - Fixed english translation parameter for policyUrl
