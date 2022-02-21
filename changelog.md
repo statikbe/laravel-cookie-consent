@@ -1,6 +1,10 @@
 # Changelog
 
 All notable changes to `Cookie Consent package` will be documented in this file.
+## 1.3.1
+### Updated
+- Made it possible to accept all from modal
+- Added accept only essential cookies
 ## 1.3.0
 ### Updated
 - Updated to be compatible with laravel 9

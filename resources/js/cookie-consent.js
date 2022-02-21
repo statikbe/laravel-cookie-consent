@@ -54,10 +54,16 @@ function initialize() {
         toggleModalSettings();
     });
 
+    addEventListener('click', '.js-lcc-essentials', function () {
+
+        saveSettings(COOKIE_VALUE_NONE);
+        hideModal(modalSettings, true);
+        hideModal(modalAlert);
+    });
+
     addEventListener('click', '.js-lcc-accept', function () {
 
         updateCookie('true');
-
         hideModal(modalSettings, true);
         hideModal(modalAlert);
     });
