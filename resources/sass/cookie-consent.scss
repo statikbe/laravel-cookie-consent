@@ -68,11 +68,13 @@
   border-color: transparent;
   padding-left: 0;
   padding-right: 0;
+  text-decoration: underline;
 
   &:hover,
   &:focus {
-    background: #eee;
-    border-color: #eee;
+    background: transparent;
+    border-color: transparent;
+    text-decoration: none;
   }
 }
 
