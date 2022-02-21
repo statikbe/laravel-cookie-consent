@@ -63,12 +63,14 @@
   border-color: transparent;
   padding-left: 0;
   padding-right: 0;
+  text-decoration: underline;
 }
 
 .lcc-button.lcc-button--link:hover,
 .lcc-button.lcc-button--link:focus {
-  background: #eee;
-  border-color: #eee;
+  background: transparent;
+  border-color: transparent;
+  text-decoration: none;
 }
 
 /* Label */
