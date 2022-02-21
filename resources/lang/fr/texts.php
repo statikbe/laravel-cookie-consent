@@ -3,7 +3,7 @@
 return [
     'alert_accept' => 'Accepter',
     'alert_essentials_only' => 'Accepter que les cookies essentiels',
-    'alert_settings' => 'Paramètres des cookies',
+    'alert_settings' => 'Gérer vos préférences',
     'alert_text' => 'Nous utilisons des cookies pour améliorer l\'expérience du visiteur. En cliquant sur « Accepter », vous marquez votre accord avec l\'utilisation de ces cookies.',
     'alert_title' => 'Ce site web utilise des cookies',
     'setting_analytics' => 'Cookies analytiques',
