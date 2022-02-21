@@ -61,6 +61,8 @@
   color: inherit;
   background: transparent;
   border-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .lcc-button.lcc-button--link:hover,
