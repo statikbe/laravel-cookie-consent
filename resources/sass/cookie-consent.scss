@@ -112,7 +112,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
+  width: 475px;
   max-width: 90%;
   max-height: 90%;
   overflow: auto;
@@ -152,14 +152,11 @@
 
   .lcc-modal__actions {
     margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
   }
 
   .lcc-modal__actions > * {
     display: block;
-    margin-left: 10px;
+    margin-top: 8px;
   }
 }
 
