@@ -1,11 +1,12 @@
 <?php
 
 return [
-    'alert_accept' => 'Accepter',
+    'alert_accept' => 'Accepter tous les cookies',
     'alert_essentials_only' => 'Accepter que les cookies essentiels',
     'alert_settings' => 'Gérer vos préférences',
-    'alert_text' => 'Nous utilisons des cookies pour améliorer l\'expérience du visiteur. En cliquant sur « Accepter », vous marquez votre accord avec l\'utilisation de ces cookies.',
+    'alert_text' => "En cliquant sur 'Accepter tous les cookies', vous acceptez que nous stockions des cookies sur votre ordinateur. Cela nous permet d'offrir une meilleure expérience utilisateur et d'analyser l'utilisation du site web. En cliquant sur 'Gérer vos préférences', vous pouvez choisir les cookies que vous autorisez. Seuls les cookies essentiels sont nécessaires au bon fonctionnement du site web et ne peuvent être refusés",
     'alert_title' => 'Ce site web utilise des cookies',
+    'alert_essential_only' => 'Accepter que les cookies essentiels',
     'setting_analytics' => 'Cookies analytiques',
     'setting_analytics_text' => 'nous permettent d\'analyser et d\'améliorer l\'expérience utilisateur du site web.',
     'setting_essential' => 'Cookies essentiels',
@@ -19,5 +20,5 @@ return [
     'settings_close' => 'Fermer',
     'settings_save' => 'Sauvegarder mon choix',
     'settings_title' => 'Cookie settings',
-    'settings_text' => 'Notre site web utilise trois niveaux de cookies. Vous pouvez adapter vos préférences à tout moment. Vous trouverez davantage d\'informations sur les cookies et la manière dont nous les utilisons dans notre <a href=":policyUrl">politique en matière de cookies</a>.',
+    'settings_text' => 'Notre site web stocke quatre types de cookies. À tout moment, vous pouvez choisir celles que vous acceptez et celles que vous refusez. Vous pouvez en savoir plus sur ce que sont les cookies et sur les types de cookies que nous stockons dans notre <a href=":policyUrl" target="_blank">politique en matière de cookies</a>.'
 ];
