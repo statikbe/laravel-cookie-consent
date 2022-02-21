@@ -17,7 +17,7 @@
             @lang('cookie-consent::texts.alert_title')
         </h2>
         <p id="lcc-modal-alert-desc" class="lcc-text">
-            @lang('cookie-consent::texts.alert_text')
+            {!! trans('cookie-consent::texts.alert_text') !!}
         </p>
     </div>
     <div class="lcc-modal__actions">
@@ -46,7 +46,7 @@
                 @lang('cookie-consent::texts.settings_title')
             </h2>
             <p id="lcc-modal-settings-desc" class="lcc-text">
-                @lang('cookie-consent::texts.settings_text', [ 'policyUrl' => config("cookie-consent.policy_url_$locale")])
+                {!! trans('cookie-consent::texts.settings_text', [ 'policyUrl' => config("cookie-consent.policy_url_$locale")]) !!}
             </p>
             <div class="lcc-modal__section lcc-u-text-center">
                 <button type="button" class="lcc-button js-lcc-accept">
@@ -65,10 +65,10 @@
             <div class="lcc-modal__section">
                 <label for="lcc-checkbox-funtcional" class="lcc-label">
                     <input type="checkbox" id="lcc-checkbox-funtcional" disabled="disabled" checked="checked">
-                    <span>@lang('cookie-consent::texts.setting_funtcional')</span>
+                    <span>@lang('cookie-consent::texts.setting_functional')</span>
                 </label>
                 <p class="lcc-text">
-                    @lang('cookie-consent::texts.setting_essential_text')
+                    @lang('cookie-consent::texts.setting_functional_text')
                 </p>
             </div>
             <div class="lcc-modal__section">
