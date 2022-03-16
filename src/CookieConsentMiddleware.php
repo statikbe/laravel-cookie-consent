@@ -4,6 +4,7 @@ namespace Statikbe\CookieConsent;
 
 use Closure;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 
 class CookieConsentMiddleware
 {
@@ -16,6 +17,10 @@ class CookieConsentMiddleware
         }
 
         if (! $this->containsBodyTag($response)) {
+            return $response;
+        }
+
+        if ($this->isIgnoredPath($request)){
             return $response;
         }
         
@@ -49,5 +54,15 @@ class CookieConsentMiddleware
     protected function getLastClosingBodyTagPosition(string $content = '')
     {
         return strripos($content, '</body>');
+    }
+
+    private function isIgnoredPath($request)
+    {
+        foreach (config('cookie-consent.ignored_paths', []) as $path){
+            if (Str::is($path, $request->getPathInfo())){
+                return true;
+            }
+        }
+        return false;
     }
 }

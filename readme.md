@@ -42,7 +42,9 @@ Include the css/cookie-consent.css into your base.blade.php or any other base te
 The javascript file is included in the cookie snippet and will be added at the end of your body.
 ## Usage
 
-Instead of including a snippet in your view, we will automatically add it. You only need to add `Statikbe\CookieConsent\CookieConsentMiddleware` to your kernel:
+Instead of including a snippet in your view, we will automatically add it. This is done using middleware using two methods:
+
+1. The first option: include it in your entire project using the kernel:
 
 ```php
 // app/Http/Kernel.php
@@ -56,6 +58,30 @@ class Kernel extends HttpKernel
 
     // ...
 }
+```
+
+2. The second option: include it as a route middleware and add this to any route you want.
+
+```php
+// app/Http/Kernel.php
+
+class Kernel extends HttpKernel
+{
+    // ...
+    
+    protected $routeMiddleware = [
+        // ...
+        'cookie-consent' => \Statikbe\CookieConsent\CookieConsentMiddleware::class,
+    ];
+}
+
+
+// routes/web.php
+Route::group([
+    'middleware' => ['cookie-consent']
+], function(){
+    // ...
+});
 ```
 
 This will add `cookieConsent::index` to the content of your response right before the closing body tag.
@@ -122,8 +148,10 @@ return [
 You can customize some settings that work with your GTM.
 
 #### Don't show modal on cookie policy page or other pages
-If you don't want the modal to be shown on certain pages you can add the relative url to the ignored paths setting
-```'ignored_paths => ['/en/cookie-policy']```
+If you don't want the modal to be shown on certain pages you can add the relative url to the ignored paths setting. This also accepts wildcards (see the Laravel `Str::is()` [helper](https://laravel.com/docs/9.x/helpers#method-str-is)).
+```
+'ignored_paths => ['/en/cookie-policy', '/api/documentation*'];
+```
 
 #### Translations
 
