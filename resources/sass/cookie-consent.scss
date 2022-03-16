@@ -76,6 +76,10 @@
     border-color: transparent;
     text-decoration: none;
   }
+
+  & + & {
+    margin-top: 0;
+  }
 }
 
 /* Label */
