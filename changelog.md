@@ -1,6 +1,9 @@
 # Changelog
 
 All notable changes to `Cookie Consent package` will be documented in this file.
+## 1.3.3
+### Fixed
+- Lang publishing for Laravel 9
 ## 1.3.2
 ### Updated
 - Ignored paths now prevents loading cookie module view instead of preventing javascript
