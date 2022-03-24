@@ -38,11 +38,15 @@ class CookieConsentServiceProvider extends ServiceProvider
         ], 'public');
 
         $this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/cookie-consent'),
+            __DIR__.'/../resources/views' => resource_path('views/vendor/cookie-consent'),
         ], 'views');
 
+        $langPath = 'vendor/cookie-consent';
+        $langPath = (function_exists('lang_path'))
+            ? lang_path($langPath)
+            : resource_path('lang/'.$langPath);
         $this->publishes([
-            __DIR__.'/../resources/lang' => base_path('resources/lang/vendor/cookie-consent'),
+            __DIR__.'/../resources/lang' => $langPath,
         ], 'lang');
     }
 }
