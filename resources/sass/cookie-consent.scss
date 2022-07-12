@@ -99,6 +99,16 @@
   }
 }
 
+input:disabled {
+  
+  cursor: default;
+  color: #777;
+  
+  & ~ .lcc-label {
+    color: #777;
+  }
+}
+
 /* Backdrop */
 
 .lcc-backdrop {
