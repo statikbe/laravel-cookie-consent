@@ -1,6 +1,12 @@
 # Changelog
 
 All notable changes to `Cookie Consent package` will be documented in this file.
+
+## 1.4.0
+- Styling changes to separate between functional and essential cookies
+- Added upgrading.md
+## 1.3.4 and 1.3.5
+- Security fixes (thanks to dependabot)
 ## 1.3.3
 ### Fixed
 - Lang publishing for Laravel 9
