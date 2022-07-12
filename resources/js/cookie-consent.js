@@ -56,7 +56,7 @@ function initialize() {
 
     addEventListener('click', '.js-lcc-essentials', function () {
 
-        saveSettings(COOKIE_VALUE_NONE);
+        updateCookie(COOKIE_VALUE_NONE);
         hideModal(modalSettings, true);
         hideModal(modalAlert);
     });
