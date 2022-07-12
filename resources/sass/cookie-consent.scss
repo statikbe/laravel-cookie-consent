@@ -82,7 +82,7 @@
   }
 }
 
-/* Label */
+/* Label + Input */
 
 .lcc-label {
 
@@ -96,6 +96,18 @@
 
   > * {
     margin-right: 10px;
+  }
+}
+
+input[id^="lcc-"]:disabled {
+  
+  cursor: default;
+  color: #777;
+  opacity: .55;
+
+  & + span {
+    cursor: default;
+    opacity: .6;
   }
 }
 
