@@ -7,6 +7,7 @@ This package is mainly based on the one from spatie: https://github.com/spatie/l
 With the only exception that you can choose which cookies you enable.
 This only works when Google Tag Manager is correctly configured (some regex config based on the value set in the cookie).
 
+* [Upgrading](upgrading.md)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Customising the dialog texts](#customising-the-dialog-texts)
@@ -19,6 +20,10 @@ This only works when Google Tag Manager is correctly configured (some regex conf
 * [Security](#security)
 * [License](#license)
    
+
+## Upgrading
+You can find our upgrading guides [here](upgrading.md).
+
 ## Installation
 
 You can install the package via composer:
