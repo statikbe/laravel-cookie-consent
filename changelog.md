@@ -2,6 +2,9 @@
 
 All notable changes to `Cookie Consent package` will be documented in this file.
 
+## 1.4.1 
+- Added packagist downloads
+- Added screenshots of modals
 ## 1.4.0
 - Styling changes to separate between functional and essential cookies
 - Added upgrading.md
