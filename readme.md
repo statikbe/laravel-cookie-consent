@@ -1,9 +1,12 @@
-# Show a Cookie consent modal on your Laravel application
+<p align="center"><img src="docs/img/card.png" alt="Card of Laravel Cookie consent"></p>
+
+# Laravel cookie consent modal
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/statikbe/laravel-cookie-consent.svg?style=flat-square)](https://packagist.org/packages/statikbe/llaravel-cookie-consent)
 [![Total Downloads](https://img.shields.io/packagist/dt/statikbe/laravel-cookie-consent.svg?style=flat-square)](https://packagist.org/packages/statikbe/laravel-cookie-consent)
 
 
 ![Modal cookie consent](docs/img/modal.png?raw=true "Modal for Cookie consent")
+
 ![Preferences Modal](docs/img/preferences.png?raw=true "Preferences for cookies")
 
 

@@ -2,6 +2,9 @@
 
 All notable changes to `Cookie Consent package` will be documented in this file.
 
+## 1.4.2
+- Added banner on top readme
+- Made preview images same width
 ## 1.4.1 
 - Added packagist downloads
 - Added screenshots of modals
