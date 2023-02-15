@@ -12,18 +12,18 @@ class CookieConsentMiddleware
     {
         $response = $next($request);
 
-        if (! $response instanceof Response) {
+        if (!$response instanceof Response) {
             return $response;
         }
 
-        if (! $this->containsBodyTag($response)) {
+        if (!$this->containsBodyTag($response)) {
             return $response;
         }
 
-        if ($this->isIgnoredPath($request)){
+        if ($this->isIgnoredPath($request)) {
             return $response;
         }
-        
+
         return $this->addCookieConsentScriptToResponse($response);
     }
 
@@ -33,33 +33,33 @@ class CookieConsentMiddleware
     }
 
     /**
-     * @param \Illuminate\Http\Response $response
+     * @param Response $response
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    protected function addCookieConsentScriptToResponse(Response $response)
+    protected function addCookieConsentScriptToResponse(Response $response): Response
     {
         $content = $response->getContent();
 
         $closingBodyTagPosition = $this->getLastClosingBodyTagPosition($content);
 
         $content = ''
-            .substr($content, 0, $closingBodyTagPosition)
-            .view('cookie-consent::index')->render()
-            .substr($content, $closingBodyTagPosition);
+            . substr($content, 0, $closingBodyTagPosition)
+            . view('cookie-consent::index')->render()
+            . substr($content, $closingBodyTagPosition);
 
         return $response->setContent($content);
     }
 
-    protected function getLastClosingBodyTagPosition(string $content = '')
+    protected function getLastClosingBodyTagPosition(string $content = ''): false|int
     {
         return strripos($content, '</body>');
     }
 
-    private function isIgnoredPath($request)
+    private function isIgnoredPath($request): bool
     {
-        foreach (config('cookie-consent.ignored_paths', []) as $path){
-            if (Str::is($path, $request->getPathInfo())){
+        foreach (config('cookie-consent.ignored_paths', []) as $path) {
+            if (Str::is($path, $request->getPathInfo())) {
                 return true;
             }
         }
