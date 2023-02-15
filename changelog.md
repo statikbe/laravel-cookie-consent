@@ -2,10 +2,15 @@
 
 All notable changes to `Cookie Consent package` will be documented in this file.
 
+## 1.5.0
+- Updated to be compatible with Laravel 10
+- Added return types
+- Removed compatibility with Laravel 8
+- Removed compatibility with PHP 7
 ## 1.4.2
 - Added banner on top readme
 - Made preview images same width
-## 1.4.1 
+## 1.4.1
 - Added packagist downloads
 - Added screenshots of modals
 ## 1.4.0
@@ -26,8 +31,8 @@ All notable changes to `Cookie Consent package` will be documented in this file.
 - Added accept only essential cookies
 ## 1.3.0
 ### Updated
-- Updated to be compatible with laravel 9
-- Removed compatibility with laravel 6 & 7
+- Updated to be compatible with Laravel 9
+- Removed compatibility with Laravel 6 & 7
 ## 1.2.12
 ### Updated
 - Fixed english translation parameter for policyUrl
@@ -56,11 +61,11 @@ Composer requirements
 - Set default GTM event from pageview to cookie_refresh
 ## Version 1.2.5
 ### Removed
-- Removed obsolete parenthesis from index.tpl 
+- Removed obsolete parenthesis from index.tpl
 ## Version 1.2.4
 ### Updated
 - Step 3 in google Tag Manager docs
-- Changed some of the images to be more up to date
+- Changed some images to be more up to date
 ## Version 1.2.3
 ### Added
 - Docs to configure Google Tag Manager
@@ -79,7 +84,7 @@ Composer requirements
 - config has been reworked to alter cookie settings
 ## Version 1.1.0
 ### Updated
-- Placed the javascript and css inside public/vendor/ instead of the public/ folder. 
+- Placed the javascript and css inside public/vendor/ instead of the public/ folder.
 - Changed publishing
 
 ## Version 1.0.3
@@ -95,8 +100,8 @@ Composer requirements
 ## Version 1.0.0
 ### Added
 - All the things
-    - Middleware that triggers the package
-    - CSS and Javascript files
-    - The modal view + the cookie settings view
-    - Service provider
-    - translations for the major languages in Belgium (Dutch, French and English)
+  - Middleware that triggers the package
+  - CSS and Javascript files
+  - The modal view + the cookie settings view
+  - Service provider
+  - translations for the major languages in Belgium (Dutch, French and English)
