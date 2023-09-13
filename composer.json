@@ -1,30 +1,39 @@
 {
-    "name": "statikbe/laravel-cookie-consent",
-    "description": "Cookie consent modal for EU",
-    "authors": [
-        {
-            "name": "Kristof Serré",
-            "email": "kristof@statik.be",
-            "homepage": "https://www.statik.be"
-        }
-    ],
-    "homepage": "https://github.com/statikbe/laravel-cookie-consent",
-    "keywords": ["Laravel", "cookie", "gdpr"],
-    "license": "MIT",
-    "require": {
-        "php": "^8.0",
-        "illuminate/http": "^9.0|^10.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Statikbe\\CookieConsent\\": "src/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Statikbe\\CookieConsent\\CookieConsentServiceProvider"
-            ]
-        }
+  "name": "infernalmedia/laravel-cookie-consent",
+  "description": "Cookie consent bottom window for Québec Law 25, forked from statikbe/laravel-cookie-consent",
+  "keywords": [
+    "infernalmedia",
+    "laravel",
+    "laravel-cookie-consent",
+    "loi 25",
+    "quebec"
+  ],
+  "homepage": "https://github.com/infernalmedia/laravel-cookie-consent",
+  "authors": [
+    {
+      "name": "Guillaume Ernst",
+      "email": "guillaume.ernst@infernal.media",
+      "role": "Developer"
     }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": "^8.1",
+    "illuminate/http": "^9.0|^10.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Infernalmedia\\CookieConsent\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Infernalmedia\\CookieConsent\\CookieConsentServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
 }
