@@ -14,8 +14,8 @@ This only works when Google Tag Manager is correctly configured (some regex conf
 * [Upgrading](upgrading.md)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Customising the dialog texts](#customising-the-dialog-texts)
-    + [Customising the dialog contents](#customising-the-dialog-contents)
+* [Customizing the dialog texts](#customizing-the-dialog-texts)
+  * [Customizing the dialog contents](#customizing-the-dialog-contents)
     + [Publishing](#publishing)
       - [Config](#config)
       - [Translations](#translations)
@@ -39,13 +39,6 @@ First of all **you need to** publish the javascript and css files:
 ```bash
 php artisan vendor:publish --provider="Infernalmedia\CookieConsent\CookieConsentServiceProvider" --tag="public"
 ```
-
-Include the css/cookie-consent.css into your base.blade.php or any other base template you use.
-```
-<link rel="stylesheet" type="text/css" href="{{asset("vendor/cookie-consent/css/cookie-consent.css")}}">
-```
-
-The javascript file is included in the cookie snippet and will be added at the end of your body.
 ## Usage
 
 Instead of including a snippet in your view, we will automatically add it. This is done using middleware using two methods:
@@ -90,9 +83,10 @@ Route::group([
 });
 ```
 
+This will add `cookieConsent::head` to the content of your response right before the closing head tag.
 This will add `cookieConsent::index` to the content of your response right before the closing body tag.
 
-## Customising the dialog texts
+## Customizing the dialog texts
 
 If you want to modify the text shown in the dialog you can publish the lang-files with this command:
 
@@ -111,7 +105,7 @@ This will publish this file to `resources/lang/vendor/cookieConsent/en/texts.php
  
  If you want to translate the values to, for example, English, just copy that file over to `resources/lang/vendor/cookieConsent/fr/texts.php` and fill in the English translations.
  
-### Customising the dialog contents
+### Customizing the dialog contents
 
 If you need full control over the contents of the dialog. You can publish the views of the package:
 
@@ -128,7 +122,9 @@ The `cookie-settings` view file is just a snippet you need to place somewhere on
 ```
 
 This gives your visitor the opportunity to change the settings again.
+
 ### Publishing
+
 #### Config
 
 ```bash
@@ -149,13 +145,17 @@ return [
     'policy_url_en' => env('COOKIE_POLICY_URL_EN', null),
     'policy_url_fr' => env('COOKIE_POLICY_URL_FR', null),
     'policy_url_nl' => env('COOKIE_POLICY_URL_NL', null),
+    'facebook_pixel_code' => env('FACEBOOK_PIXEL_CODE', null),
 ];
 ```
-You can customize some settings that work with your GTM.
+
+You can customize some settings that work with your GTM and Facebook Pixel.
 
 #### Don't show modal on cookie policy page or other pages
+
 If you don't want the modal to be shown on certain pages you can add the relative url to the ignored paths setting. This also accepts wildcards (see the Laravel `Str::is()` [helper](https://laravel.com/docs/9.x/helpers#method-str-is)).
-```
+
+```php
 'ignored_paths => ['/en/cookie-policy', '/api/documentation*'];
 ```
 
@@ -172,12 +172,26 @@ php artisan vendor:publish --provider="Infernalmedia\CookieConsent\CookieConsent
 ```
 
 ## Configure Google Tag Manager
+
 All the steps to configure your Google Tag Manager can be found [here](docs/google-tag-manager.md).
 
 
-## Security
+## Changelog
 
-If you discover any security related issues, please email [info@statik.be](mailto:info@statik.be) instead of using the issue tracker.
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+## Security Vulnerabilities
+
+Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+
+## Credits
+
+* [Guillaume Ernst](https://github.com/infernalmedia)
+* [All Contributors](../../contributors)
 
 ## License
 
