@@ -41,6 +41,32 @@ php artisan vendor:publish --provider="Infernalmedia\CookieConsent\CookieConsent
 ```
 ## Usage
 
+
+### Cheat sheet
+
+```bash
+php artisan vendor:publish --provider="Infernalmedia\CookieConsent\CookieConsentServiceProvider" --tag="public"
+php artisan vendor:publish --provider="Infernalmedia\CookieConsent\CookieConsentServiceProvider" --tag="config"
+```
+
+Edit `app/Http/Kernel.php`
+
+```php
+
+class Kernel extends HttpKernel
+{
+    protected $middleware = [
+        // ...
+        \Infernalmedia\CookieConsent\CookieConsentMiddleware::class,
+    ];
+
+    // ...
+}
+```
+
+
+### Details
+
 Instead of including a snippet in your view, we will automatically add it. This is done using middleware using two methods:
 
 1. The first option: include it in your entire project using the kernel:
