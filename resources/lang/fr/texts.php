@@ -2,11 +2,11 @@
 
 return [
     'alert_accept' => 'Accepter tous les cookies',
-    'alert_essentials_only' => 'Accepter que les cookies essentiels',
+    'alert_essentials_only' => 'Accepter seulement les cookies essentiels',
     'alert_settings' => 'Gérer vos préférences',
-    'alert_text' => "En cliquant sur 'Accepter tous les cookies', vous acceptez que nous stockions des cookies sur votre ordinateur. Cela nous permet d'offrir une meilleure expérience utilisateur et d'analyser l'utilisation du site web. En cliquant sur 'Gérer vos préférences', vous pouvez choisir les cookies que vous autorisez. Seuls les cookies essentiels sont nécessaires au bon fonctionnement du site web et ne peuvent être refusés",
+    'alert_text' => 'Nous utilisons des témoins de navigation (cookies) afin d’opérer et d’améliorer nos services ainsi qu’à des fins publicitaires. Le respect de votre vie privée est important pour nous. Si vous n’êtes pas à l’aise avec l’utilisation de ces informations, veuillez revoir vos paramètres avant de poursuivre votre visite. <a class="lcc-link" href=":policyUrl" target="_blank">Renseignements personnels et Confidentialité</a>',
     'alert_title' => 'Ce site web utilise des cookies',
-    'alert_essential_only' => 'Accepter que les cookies essentiels',
+    'alert_essential_only' => 'Accepter seulement les cookies essentiels',
     'setting_analytics' => 'Cookies analytiques',
     'setting_analytics_text' => 'nous permettent d\'analyser et d\'améliorer l\'expérience utilisateur du site web.',
     'setting_essential' => 'Cookies essentiels',

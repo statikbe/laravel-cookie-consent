@@ -4,7 +4,7 @@ return [
     'alert_accept' => 'Accept all cookies',
     'alert_essentials_only' => 'Accept only necessary cookies',
     'alert_settings' => 'Adjust your preferences',
-    'alert_text' => 'By choosing "Accept all cookies" you agree to the use of cookies to help us provide you with a better user experience and to analyse website usage. By clicking "Adjust your preferences" you can choose which cookies to allow. Only the essential cookies are necessary for the proper functioning of our website and cannot be refused',
+    'alert_text' => 'We use browser cookies to operate and enhance our services, as well as for advertising purposes. Your privacy is important to us. If you\'re not comfortable with the use of this information, please review your settings before continuing your visit. <a class="lcc-link" href=":policyUrl" target="_blank">Personal Information and Privacy</a>',
     'alert_title' => 'This website uses cookies',
     'alert_essential_only' => 'Accept only necessary cookies',
     'setting_analytics' => 'Analytical cookies',
