@@ -16,7 +16,7 @@ class CookieConsentMiddleware
             return $response;
         }
 
-        if (!$this->containsBodyTag($response)) {
+        if (!$this->containsBodyTag($response) || !$this->containsHeadTag($response)) {
             return $response;
         }
 
@@ -32,6 +32,11 @@ class CookieConsentMiddleware
         return $this->getLastClosingBodyTagPosition($response->getContent()) !== false;
     }
 
+    protected function containsHeadTag(Response $response): bool
+    {
+        return $this->getLastClosingBodyTagPosition($response->getContent()) !== false;
+    }
+
     /**
      * @param Response $response
      *
@@ -42,11 +47,17 @@ class CookieConsentMiddleware
         $content = $response->getContent();
 
         $closingBodyTagPosition = $this->getLastClosingBodyTagPosition($content);
+        $closingHeadTagPosition = $this->getLastClosingHeadTagPosition($content);
 
         $content = ''
             . substr($content, 0, $closingBodyTagPosition)
             . view('cookie-consent::index')->render()
             . substr($content, $closingBodyTagPosition);
+
+        $content = ''
+            . substr($content, 0, $closingHeadTagPosition)
+            . view('cookie-consent::head')->render()
+            . substr($content, $closingHeadTagPosition);
 
         return $response->setContent($content);
     }
@@ -54,6 +65,11 @@ class CookieConsentMiddleware
     protected function getLastClosingBodyTagPosition(string $content = ''): false|int
     {
         return strripos($content, '</body>');
+    }
+
+    protected function getLastClosingHeadTagPosition(string $content = ''): false|int
+    {
+        return strripos($content, '</head>');
     }
 
     private function isIgnoredPath($request): bool

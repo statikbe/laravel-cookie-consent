@@ -15,6 +15,8 @@ class CookieConsentServiceProvider extends ServiceProvider
 
         $this->app['view']->composer('cookie-consent::index', function (View $view) {
         });
+        $this->app['view']->composer('cookie-consent::head', function (View $view) {
+        });
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {

@@ -12,4 +12,5 @@ return [
     'policy_url_en' => env('COOKIE_POLICY_URL_EN', null),
     'policy_url_fr' => env('COOKIE_POLICY_URL_FR', null),
     'policy_url_nl' => env('COOKIE_POLICY_URL_NL', null),
+    'facebook_pixel_code' => env('FACEBOOK_PIXEL_CODE', null),
 ];
