@@ -1,6 +1,6 @@
 <?php
 
-namespace Statikbe\CookieConsent;
+namespace Infernalmedia\CookieConsent;
 
 use Closure;
 use Illuminate\Http\Response;

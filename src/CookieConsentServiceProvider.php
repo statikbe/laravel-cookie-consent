@@ -1,6 +1,6 @@
 <?php
 
-namespace Statikbe\CookieConsent;
+namespace Infernalmedia\CookieConsent;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\View\View;
