@@ -23,7 +23,7 @@
         </h2> --}}
         <p id="lcc-modal-alert-desc"
            class="lcc-text">
-            {!! trans('cookie-consent::texts.alert_text') !!}
+            {!! trans('cookie-consent::texts.alert_text', ['policyUrl' => config("cookie-consent.policy_url_$locale")]) !!}
         </p>
     </div>
     <div class="lcc-modal__actions">
@@ -34,7 +34,7 @@
         <a type="button"
            class="lcc-button lcc-button--link js-lcc-essentials">
             {{-- @lang('cookie-consent::texts.alert_essential_only') --}}
-            {!! trans('cookie-consent::texts.alert_essential_only', ['policyUrl' => config("cookie-consent.policy_url_$locale")]) !!}
+            {!! trans('cookie-consent::texts.alert_essential_only') !!}
         </a>
 
         {{-- <button type="button"
