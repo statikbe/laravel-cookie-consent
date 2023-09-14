@@ -8,9 +8,9 @@ return [
     'cookie_value_none' => 'false',
     'cookie_expiration_days' => '365',
     'gtm_event' => 'cookie_refresh',
-    'ignored_paths' => [],
-    'policy_url_en' => env('COOKIE_POLICY_URL_EN', null),
-    'policy_url_fr' => env('COOKIE_POLICY_URL_FR', null),
+    'ignored_paths' => ['/renseignements-personnels-et-confidentialite', '/personal-information-and-privacy'],
+    'policy_url_en' => env('COOKIE_POLICY_URL_EN', '/personal-information-and-privacy'),
+    'policy_url_fr' =>  env('COOKIE_POLICY_URL_FR', '/renseignements-personnels-et-confidentialite'),
     'policy_url_nl' => env('COOKIE_POLICY_URL_NL', null),
     'facebook_pixel_code' => env('FACEBOOK_PIXEL_CODE', null),
 ];
