@@ -35,18 +35,10 @@ composer require infernalmedia/laravel-cookie-consent
 
 The package will automatically register itself.
 
-First of all **you need to** publish the javascript and css files:
-```bash
-php artisan vendor:publish --provider="Infernalmedia\CookieConsent\CookieConsentServiceProvider" --tag="public"
-```
-## Usage
-
-
 ### Cheat sheet
 
 ```bash
-php artisan vendor:publish --provider="Infernalmedia\CookieConsent\CookieConsentServiceProvider" --tag="public"
-php artisan vendor:publish --provider="Infernalmedia\CookieConsent\CookieConsentServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Infernalmedia\CookieConsent\CookieConsentServiceProvider" --tag="public" --tag="config"
 ```
 
 Edit `app/Http/Kernel.php`
@@ -64,8 +56,14 @@ class Kernel extends HttpKernel
 }
 ```
 
+## Usage
 
-### Details
+
+
+First of all **you need to** publish the javascript and css files:
+```bash
+php artisan vendor:publish --provider="Infernalmedia\CookieConsent\CookieConsentServiceProvider" --tag="public"
+```
 
 Instead of including a snippet in your view, we will automatically add it. This is done using middleware using two methods:
 
