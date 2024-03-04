@@ -32,7 +32,13 @@ const GTM_EVENT = modalAlert.dataset.gtmEvent || 'pageview';
 
 const ignoredPaths = modalAlert.dataset.ignoredPaths || null;
 
+let onConsentChange;
+
 initialize();
+
+window.cookieBannerConsentChange = (callback) => {
+    onConsentChange = callback;
+};
 
 function initialize() {
 
@@ -151,6 +157,10 @@ function saveSettings() {
 function updateCookie(cookieValue) {
 
     setCookie(COOKIE_KEY, COOKIE_EXPIRATION_DAYS, cookieValue);
+
+    if(onConsentChange) {
+        onConsentChange(cookieValue);
+    }
 
     //  Fire GTM event if dataLayer is found
     if (window.dataLayer) {
