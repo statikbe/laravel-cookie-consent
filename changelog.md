@@ -2,6 +2,8 @@
 
 All notable changes to `Cookie Consent package` will be documented in this file.
 
+## 1.6.0
+- Added Callback for Google Consent mode
 ## 1.5.0
 - Updated to be compatible with Laravel 10
 - Added return types
