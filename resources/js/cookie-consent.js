@@ -69,7 +69,7 @@ function initialize() {
 
     addEventListener('click', '.js-lcc-accept', function () {
 
-        updateCookie('true');
+        updateCookie(COOKIE_VALUE_BOTH);
         hideModal(modalSettings, true);
         hideModal(modalAlert);
     });
