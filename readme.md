@@ -46,7 +46,7 @@ The package will automatically register itself.
 
 First of all **you need to** publish the javascript and css files:
 ```bash
-php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="public"
+php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="cookie-public"
 ```
 
 Include the css/cookie-consent.css into your base.blade.php or any other base template you use.
@@ -106,7 +106,7 @@ This will add `cookieConsent::index` to the content of your response right befor
 If you want to modify the text shown in the dialog you can publish the lang-files with this command:
 
 ```bash
-php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="lang"
+php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="cookie-lang"
 ```
 
 This will publish this file to `resources/lang/vendor/cookieConsent/en/texts.php`.
@@ -125,7 +125,7 @@ This will publish this file to `resources/lang/vendor/cookieConsent/en/texts.php
 If you need full control over the contents of the dialog. You can publish the views of the package:
 
 ```bash
-php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="views"
+php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="cookie-views"
 ```
 
 This will copy the `index`  view file over to `resources/views/vendor/cookieConsent`.
@@ -141,7 +141,7 @@ This gives your visitor the opportunity to change the settings again.
 #### Config
 
 ```bash
-php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="cookie-config"
 ```
 This is the contents of the published config-file:
 This will read the policy urls from your env. 
@@ -171,13 +171,13 @@ If you don't want the modal to be shown on certain pages you can add the relativ
 #### Translations
 
 ```bash
-php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="lang"
+php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="cookie-lang"
 ```
 
 #### Views
 
 ```bash
-php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="views"
+php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="cookie-views"
 ```
 
 ## Configure Google Tag Manager
