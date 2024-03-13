@@ -1,7 +1,9 @@
 # Changelog
 
 All notable changes to `Cookie Consent package` will be documented in this file.
-
+## 1.7.0 
+-  Updated to be compatible with Laravel 11
+- changed group names for publishing config/views/etc
 ## 1.6.0
 - Added Callback for Google Consent mode
 ## 1.5.0

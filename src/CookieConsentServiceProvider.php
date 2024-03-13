@@ -31,15 +31,15 @@ class CookieConsentServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../config/cookie-consent.php' => config_path('cookie-consent.php'),
-        ], 'config');
+        ], 'cookie-config');
 
         $this->publishes([
             __DIR__ . '/../public/' => public_path('vendor/cookie-consent'),
-        ], 'public');
+        ], 'cookie-public');
 
         $this->publishes([
             __DIR__ . '/../resources/views' => resource_path('views/vendor/cookie-consent'),
-        ], 'views');
+        ], 'cookie-views');
 
         $langPath = 'vendor/cookie-consent';
         $langPath = (function_exists('lang_path'))
@@ -47,6 +47,6 @@ class CookieConsentServiceProvider extends ServiceProvider
             : resource_path('lang/' . $langPath);
         $this->publishes([
             __DIR__ . '/../resources/lang' => $langPath,
-        ], 'lang');
+        ], 'cookie-lang');
     }
 }
