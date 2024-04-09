@@ -1,6 +1,8 @@
 # Changelog
 
 All notable changes to `Cookie Consent package` will be documented in this file.
+## 1.8.1
+- Fixed typo in js
 ## 1.8.0
 - Added option to set the domain property on a cookie with Session domain config from Laravel
 ## 1.7.0 

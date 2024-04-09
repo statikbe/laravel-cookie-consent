@@ -121,7 +121,7 @@ function toggleModalSettings() {
     }
 }
 
-function éinitSettings() {
+function initSettings() {
 
     const cookieValue = getCookie(COOKIE_KEY);
 
