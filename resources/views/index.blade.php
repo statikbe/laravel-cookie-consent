@@ -2,7 +2,8 @@
     $locale = $app->getLocale();
 @endphp
 
-<div role="dialog" aria-labelledby="lcc-modal-alert-label" aria-describedby="lcc-modal-alert-desc" aria-modal="true" class="lcc-modal lcc-modal--alert js-lcc-modal js-lcc-modal-alert" style="display: none;"
+<div role="dialog" aria-labelledby="lcc-modal-alert-label" aria-describedby="lcc-modal-alert-desc" aria-modal="true"
+     class="lcc-modal lcc-modal--alert js-lcc-modal js-lcc-modal-alert" style="display: none;"
      data-cookie-key="{{ config('cookie-consent.cookie_key') }}"
      data-cookie-value-analytics="{{ config('cookie-consent.cookie_value_analytics') }}"
      data-cookie-value-marketing="{{ config('cookie-consent.cookie_value_marketing') }}"
@@ -11,6 +12,7 @@
      data-cookie-expiration-days="{{ config('cookie-consent.cookie_expiration_days') }}"
      data-gtm-event="{{ config('cookie-consent.gtm_event') }}"
      data-ignored-paths="{{ implode(',', config('cookie-consent.ignored_paths', [])) }}"
+     data-session-domain="{{ config('session.domain', '') }}"
 >
     <div class="lcc-modal__content">
         <h2 id="lcc-modal-alert-label" class="lcc-modal__title">
@@ -33,7 +35,8 @@
     </div>
 </div>
 
-<div role="dialog" aria-labelledby="lcc-modal-settings-label" aria-describedby="lcc-modal-settings-desc" aria-modal="true" class="lcc-modal lcc-modal--settings js-lcc-modal js-lcc-modal-settings" style="display: none;">
+<div role="dialog" aria-labelledby="lcc-modal-settings-label" aria-describedby="lcc-modal-settings-desc"
+     aria-modal="true" class="lcc-modal lcc-modal--settings js-lcc-modal js-lcc-modal-settings" style="display: none;">
     <button class="lcc-modal__close js-lcc-settings-toggle" type="button">
         <span class="lcc-u-sr-only">
             @lang('cookie-consent::texts.settings_close')

@@ -1,17 +1,8 @@
-import {
-    getCookie,
-    setCookie
-} from './util/cookies';
+import {getCookie, setCookie} from './util/cookies';
 
-import {
-    isHidden,
-    addEventListener
-} from './util/dom';
+import {addEventListener, isHidden} from './util/dom';
 
-import {
-    showModal,
-    hideModal
-} from './util/modals';
+import {hideModal, showModal} from './util/modals';
 
 import 'wicg-inert';
 
@@ -29,6 +20,7 @@ const COOKIE_VALUE_NONE = modalAlert.dataset.cookieValueNone || 'false';
 const COOKIE_VALUE_BOTH = modalAlert.dataset.cookieValueBoth || 'true';
 const COOKIE_EXPIRATION_DAYS = modalAlert.dataset.cookieExpirationDays || '365';
 const GTM_EVENT = modalAlert.dataset.gtmEvent || 'pageview';
+const SESSION_DOMAIN = modalAlert.dataset.sessionDomain;
 
 const ignoredPaths = modalAlert.dataset.ignoredPaths || null;
 
@@ -89,10 +81,10 @@ function toggleModalSettings() {
         showModal(modalSettings, !isHidden(modalAlert));
 
         initSettings();
-        
+
         backdrop.addEventListener('click', backdropListener);
         document.body.addEventListener('keydown', keyboardListener);
-        
+
     } else {
 
         hideModalSettings();
@@ -104,7 +96,7 @@ function toggleModalSettings() {
     }
 
     function keyboardListener(event) {
-        
+
         //  Close modal on pressing Escape key
         if ((event.which || event.keyCode) == 27) {
 
@@ -118,7 +110,7 @@ function toggleModalSettings() {
 
         backdrop.removeEventListener('click', backdropListener);
         document.body.removeEventListener('keydown', keyboardListener);
-        
+
         hideModal(modalSettings, !getCookie(COOKIE_KEY));
 
         if (!getCookie(COOKIE_KEY)) {
@@ -129,7 +121,7 @@ function toggleModalSettings() {
     }
 }
 
-function initSettings() {
+function éinitSettings() {
 
     const cookieValue = getCookie(COOKIE_KEY);
 
@@ -156,9 +148,9 @@ function saveSettings() {
 
 function updateCookie(cookieValue) {
 
-    setCookie(COOKIE_KEY, COOKIE_EXPIRATION_DAYS, cookieValue);
+    setCookie(COOKIE_KEY, COOKIE_EXPIRATION_DAYS, SESSION_DOMAIN, cookieValue);
 
-    if(onConsentChange) {
+    if (onConsentChange) {
         onConsentChange(cookieValue);
     }
 
