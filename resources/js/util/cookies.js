@@ -16,7 +16,7 @@ export function getCookie(key) {
     );
 }
 
-export function setCookie(key, expireDays, value) {
+export function setCookie(key, expireDays, sessionDomain, value) {
 
     const date = new Date();
     let expires = null;
@@ -28,5 +28,5 @@ export function setCookie(key, expireDays, value) {
         expires = date.toUTCString();
     }
 
-    document.cookie = `${encodeURIComponent(key)}=${encodeURIComponent(value)}${expires ? `; expires=${expires}` : ''}; path=/`;
+    document.cookie = `${encodeURIComponent(key)}=${encodeURIComponent(value)}${expires ? `; expires=${expires}` : ''}; path=/${sessionDomain ? `; domain=${sessionDomain}` : ''}`;
 }
