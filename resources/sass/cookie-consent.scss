@@ -61,6 +61,31 @@
   }
 }
 
+.lcc-button.lcc-button--ghost {
+
+  display: inline-block;
+  background: transparent;
+  background-color: transparent;
+  color: black;
+  border: 1px solid #111;
+  outline: none;
+  font-size: inherit;
+  padding: 6px 15px;
+  cursor: pointer;
+  margin: 1px 0;
+  transition:
+          color 0.2s ease,
+          background-color 0.2s ease,
+          border-color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: white;
+    background: #777;
+    border-color: #777;
+  }
+}
+
 .lcc-button.lcc-button--link {
 
   color: inherit;
@@ -96,6 +121,10 @@
 
   > * {
     margin-right: 10px;
+  }
+
+  & span {
+    font-weight: 600;
   }
 }
 
@@ -168,6 +197,10 @@ input[id^="lcc-"]:disabled {
 
   .lcc-modal__section {
     margin-bottom: 20px;
+
+    & .lcc-text {
+      margin-right: 12px;
+    }
   }
 
   .lcc-modal__actions {
