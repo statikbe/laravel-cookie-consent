@@ -1,6 +1,8 @@
 # Changelog
 
 All notable changes to `Cookie Consent package` will be documented in this file.
+## 1.8.5
+- Styling updates
 ## 1.8.4
 - Styling updates
 ## 1.8.3

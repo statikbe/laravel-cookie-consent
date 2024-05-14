@@ -94,12 +94,10 @@
             </div>
         </div>
     </div>
-    <div class="lcc-modal__actions">
-        <div>
-            <button type="button" class="lcc-button js-lcc-settings-save">
-                @lang('cookie-consent::texts.settings_save')
-            </button>
-        </div>
+    <div class="lcc-modal__actions lcc-modal__actions-center">
+        <button type="button" class="lcc-button js-lcc-settings-save">
+            @lang('cookie-consent::texts.settings_save')
+        </button>
     </div>
 </div>
 
