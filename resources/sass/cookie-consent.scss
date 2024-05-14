@@ -1,4 +1,7 @@
 /* Basic styling */
+.js-lcc-active {
+  overflow: hidden;
+}
 
 [class^="lcc-"] {
   box-sizing: border-box !important;
@@ -44,7 +47,6 @@
   background-color: #111;
   color: white;
   border: 1px solid #111;
-  outline: none;
   font-size: inherit;
   padding: 6px 15px;
   cursor: pointer;
@@ -56,8 +58,8 @@
 
   &:hover,
   &:focus {
-    background: #777;
-    border-color: #777;
+    background: #555;
+    border-color: #555;
   }
 }
 
@@ -68,7 +70,6 @@
   background-color: transparent;
   color: black;
   border: 1px solid #111;
-  outline: none;
   font-size: inherit;
   padding: 6px 15px;
   cursor: pointer;
@@ -81,8 +82,8 @@
   &:hover,
   &:focus {
     color: white;
-    background: #777;
-    border-color: #777;
+    background: #555;
+    border-color: #555;
   }
 }
 
@@ -128,7 +129,7 @@
 input[id^="lcc-"]:disabled {
   
   cursor: default;
-  color: #777;
+  color: #555;
   opacity: .55;
 
   & + span {
@@ -183,7 +184,7 @@ input[id^="lcc-"]:disabled {
 
     &:hover,
     &:focus {
-      color: #777;
+      color: #555;
     }
   }
 
@@ -202,8 +203,10 @@ input[id^="lcc-"]:disabled {
 
   .lcc-modal__actions {
     margin-top: 30px;
+  }
+
+  .lcc-modal__actions-center {
     display: flex;
-    flex-direction: column;
     justify-content: center;
   }
 
