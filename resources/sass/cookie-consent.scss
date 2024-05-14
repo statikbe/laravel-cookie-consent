@@ -196,12 +196,15 @@ input[id^="lcc-"]:disabled {
     margin-bottom: 20px;
 
     & .lcc-text {
-      margin-right: 12px;
+      margin-left: 24px;
     }
   }
 
   .lcc-modal__actions {
     margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .lcc-modal__actions > * {
