@@ -29,7 +29,7 @@
         <button type="button" class="lcc-button js-lcc-essentials">
             @lang('cookie-consent::texts.alert_essential_only')
         </button>
-        <button type="button" class="lcc-button js-lcc-settings-toggle">
+        <button type="button" class="lcc-button lcc-button--ghost js-lcc-settings-toggle">
             @lang('cookie-consent::texts.alert_settings')
         </button>
     </div>
@@ -94,7 +94,7 @@
             </div>
         </div>
     </div>
-    <div class="lcc-modal__actions">
+    <div class="lcc-modal__actions lcc-u-text-center">
         <button type="button" class="lcc-button js-lcc-settings-save">
             @lang('cookie-consent::texts.settings_save')
         </button>
