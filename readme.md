@@ -99,6 +99,20 @@ Route::group([
 });
 ```
 
+### Laravel 11
+```php
+// bootstrap/app.php
+
+class Kernel extends HttpKernel
+{
+    // ...
+    
+    ->withMiddleware(function (Middleware $middleware) {
+        $middleware->append(Statikbe\CookieConsent\CookieConsentMiddleware::class);
+    })
+}
+```
+
 This will add `cookieConsent::index` to the content of your response right before the closing body tag.
 
 ## Customising the dialog texts
