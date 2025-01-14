@@ -26,10 +26,10 @@
         <button type="button" class="lcc-button js-lcc-accept">
             @lang('cookie-consent::texts.alert_accept')
         </button>
-        <button type="button" class="lcc-button lcc-button--link js-lcc-essentials">
+        <button type="button" class="lcc-button js-lcc-essentials">
             @lang('cookie-consent::texts.alert_essential_only')
         </button>
-        <button type="button" class="lcc-button lcc-button--link js-lcc-settings-toggle">
+        <button type="button" class="lcc-button lcc-button--ghost js-lcc-settings-toggle">
             @lang('cookie-consent::texts.alert_settings')
         </button>
     </div>
@@ -66,8 +66,8 @@
                 </p>
             </div>
             <div class="lcc-modal__section">
-                <label for="lcc-checkbox-funtcional" class="lcc-label">
-                    <input type="checkbox" id="lcc-checkbox-funtcional" disabled="disabled" checked="checked">
+                <label for="lcc-checkbox-functional" class="lcc-label">
+                    <input type="checkbox" id="lcc-checkbox-functional" disabled="disabled" checked="checked">
                     <span>@lang('cookie-consent::texts.setting_functional')</span>
                 </label>
                 <p class="lcc-text">
@@ -94,7 +94,7 @@
             </div>
         </div>
     </div>
-    <div class="lcc-modal__actions">
+    <div class="lcc-modal__actions lcc-modal__actions-center">
         <button type="button" class="lcc-button js-lcc-settings-save">
             @lang('cookie-consent::texts.settings_save')
         </button>

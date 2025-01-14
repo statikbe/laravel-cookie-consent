@@ -1,4 +1,7 @@
 /* Basic styling */
+.js-lcc-active {
+  overflow: hidden;
+}
 
 [class^="lcc-"] {
   box-sizing: border-box !important;
@@ -44,7 +47,6 @@
   background-color: #111;
   color: white;
   border: 1px solid #111;
-  outline: none;
   font-size: inherit;
   padding: 6px 15px;
   cursor: pointer;
@@ -56,8 +58,32 @@
 
   &:hover,
   &:focus {
-    background: #777;
-    border-color: #777;
+    background: #555;
+    border-color: #555;
+  }
+}
+
+.lcc-button.lcc-button--ghost {
+
+  display: inline-block;
+  background: transparent;
+  background-color: transparent;
+  color: black;
+  border: 1px solid #111;
+  font-size: inherit;
+  padding: 6px 15px;
+  cursor: pointer;
+  margin: 1px 0;
+  transition:
+          color 0.2s ease,
+          background-color 0.2s ease,
+          border-color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: white;
+    background: #555;
+    border-color: #555;
   }
 }
 
@@ -89,6 +115,7 @@
   margin-bottom: 5px;
   display: flex;
   align-items: baseline;
+  font-weight: 600;
 
   &[for] {
     cursor: pointer;
@@ -102,7 +129,7 @@
 input[id^="lcc-"]:disabled {
   
   cursor: default;
-  color: #777;
+  color: #555;
   opacity: .55;
 
   & + span {
@@ -157,7 +184,7 @@ input[id^="lcc-"]:disabled {
 
     &:hover,
     &:focus {
-      color: #777;
+      color: #555;
     }
   }
 
@@ -168,10 +195,19 @@ input[id^="lcc-"]:disabled {
 
   .lcc-modal__section {
     margin-bottom: 20px;
+
+    & .lcc-text {
+      margin-left: 24px;
+    }
   }
 
   .lcc-modal__actions {
     margin-top: 30px;
+  }
+
+  .lcc-modal__actions-center {
+    display: flex;
+    justify-content: center;
   }
 
   .lcc-modal__actions > * {

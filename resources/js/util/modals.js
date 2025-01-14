@@ -42,10 +42,11 @@ function fadeBackdrop() {
     const backdropElement = document.querySelector('.js-lcc-backdrop');
 
     if (isHidden(backdropElement)) {
+        document.querySelector('html').classList.add('js-lcc-active');
         showElement(backdropElement);
         backdropElement.style.opacity = '1';
     } else {
-
+        document.querySelector('html').classList.remove('js-lcc-active');
         backdropElement.addEventListener('transitionend', hideBackdrop);
         backdropElement.style.opacity = '0';
     }
@@ -55,5 +56,5 @@ function fadeBackdrop() {
         hideElement(backdropElement);
 
         backdropElement.removeEventListener('transitionend', hideBackdrop);
-    };
+    }
 }
