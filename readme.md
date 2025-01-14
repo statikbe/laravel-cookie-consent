@@ -59,7 +59,28 @@ The javascript file is included in the cookie snippet and will be added at the e
 
 Instead of including a snippet in your view, we will automatically add it. This is done using middleware using two methods:
 
-1. The first option: include it in your entire project using the kernel:
+__For Laravel 11.x and newer__
+
+```php
+// bootstrap/app.php
+
+->withMiddleware(function (Middleware $middleware) {
+    ...
+    $middleware->web(append: [
+        ...
+        \Statikbe\CookieConsent\CookieConsentMiddleware::class,
+    ]);
+
+// OR AS AN ALIAS
+
+    $middleware->alias([
+        ...
+        'cookie-consent' => \Statikbe\CookieConsent\CookieConsentMiddleware::class,
+    ]);
+})
+
+```
+__For Laravel 10.x and earlier__
 
 ```php
 // app/Http/Kernel.php
@@ -71,32 +92,19 @@ class Kernel extends HttpKernel
         \Statikbe\CookieConsent\CookieConsentMiddleware::class,
     ];
 
-    // ...
-}
-```
-
-2. The second option: include it as a route middleware and add this to any route you want.
-
-```php
-// app/Http/Kernel.php
-
-class Kernel extends HttpKernel
-{
-    // ...
-    
-    protected $routeMiddleware = [
+     protected $routeMiddleware = [
         // ...
         'cookie-consent' => \Statikbe\CookieConsent\CookieConsentMiddleware::class,
     ];
-}
-
-
+    
+    
 // routes/web.php
 Route::group([
     'middleware' => ['cookie-consent']
 ], function(){
     // ...
 });
+}
 ```
 
 This will add `cookieConsent::index` to the content of your response right before the closing body tag.
