@@ -1,12 +1,11 @@
 # Changelog
 
 All notable changes to `Cookie Consent package` will be documented in this file.
-## 1.10.2
-- Added GTM Template + documentation
-## 1.10.1
-- Updated node packages
+
 ## 1.10.0
 - Added option to add secure flag to a cookie
+- Updated node packages
+- Added GTM Template + documentation
 ## 1.9.1
 - Added .gitattributes
 ## 1.9.0
