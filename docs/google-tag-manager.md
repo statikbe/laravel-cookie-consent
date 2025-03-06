@@ -79,7 +79,17 @@ You do the same as you do in Step 3 and Step 5, Add exception to your trigger.
 
 ![Add cookie refresh to all pages](img/step9.png?raw=true "Add cookie refresh to all pages")
 
-## Step 10: Preview changes and check if the right tags get fired
+## Step 10 Add the Cookie Consent V2 Template
+- In your workspace go to Admin
+- On the right choose Import container
+- ![Import container in workspace admin](img/step10.png?raw=true "Import container in workspace admin")
+- Importing the template
+  - Click "Choose container file"
+  - The file can be found here [Import this json](template/gtm_template.json?raw=true "GTM template")
+  - Make sure you choose __Merge__ as import option
+- You can find the template under Templates
+  - You can change the name, icon, description as you please
+## Step 11: Preview changes and check if the right tags get fired
 Check if the righ tag get's fired eg. when your site visitor only wants analytic cookies.
-## Step 11: Publish
+## Step 12: Publish
 Don't forget to publish all your changes ;-)

@@ -1,6 +1,8 @@
 # Changelog
 
 All notable changes to `Cookie Consent package` will be documented in this file.
+## 1.10.2
+- Added GTM Template + documentation
 ## 1.10.1
 - Updated node packages
 ## 1.10.0
