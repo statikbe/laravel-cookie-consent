@@ -1,7 +1,8 @@
 # Changelog
 
 All notable changes to `Cookie Consent package` will be documented in this file.
-
+## 1.10.1
+- Fixed wrong link to image
 ## 1.10.0
 - Added option to add secure flag to a cookie
 - Updated node packages
