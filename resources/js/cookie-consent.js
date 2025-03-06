@@ -21,6 +21,7 @@ const COOKIE_VALUE_BOTH = modalAlert.dataset.cookieValueBoth || 'true';
 const COOKIE_EXPIRATION_DAYS = modalAlert.dataset.cookieExpirationDays || '365';
 const GTM_EVENT = modalAlert.dataset.gtmEvent || 'pageview';
 const SESSION_DOMAIN = modalAlert.dataset.sessionDomain;
+const COOKIE_SECURE = !!modalAlert.dataset.cookieSecure;
 
 const ignoredPaths = modalAlert.dataset.ignoredPaths || null;
 
@@ -98,7 +99,7 @@ function toggleModalSettings() {
     function keyboardListener(event) {
 
         //  Close modal on pressing Escape key
-        if ((event.which || event.keyCode) == 27) {
+        if ((event.which || event.keyCode) === 27) {
 
             event.preventDefault();
 
@@ -148,7 +149,7 @@ function saveSettings() {
 
 function updateCookie(cookieValue) {
 
-    setCookie(COOKIE_KEY, COOKIE_EXPIRATION_DAYS, SESSION_DOMAIN, cookieValue);
+    setCookie(COOKIE_KEY, cookieValue, COOKIE_EXPIRATION_DAYS, SESSION_DOMAIN, COOKIE_SECURE);
 
     if (onConsentChange) {
         onConsentChange(cookieValue);

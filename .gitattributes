@@ -1,0 +1,13 @@
+# Path-based git attributes
+# https://www.kernel.org/pub/software/scm/git/docs/gitattributes.html
+
+# Ignore all test and documentation with "export-ignore".
+/docs               export-ignore
+/.github            export-ignore
+/.gitattributes     export-ignore
+mix-manifest.json   export-ignore
+package.json        export-ignore
+readme.md           export-ignore
+upgrading.md        export-ignore
+webpack.mix.js      export-ignore
+yarn.lock           export-ignore
