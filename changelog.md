@@ -1,6 +1,15 @@
 # Changelog
 
 All notable changes to `Cookie Consent package` will be documented in this file.
+
+## 1.10.0
+- Added option to add secure flag to a cookie
+- Updated node packages
+- Added GTM Template + documentation
+## 1.9.1
+- Added .gitattributes
+## 1.9.0
+-  Updated to be compatible with Laravel 12
 ## 1.8.6
 - Updated readme
 ## 1.8.5
