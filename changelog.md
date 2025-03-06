@@ -1,6 +1,8 @@
 # Changelog
 
 All notable changes to `Cookie Consent package` will be documented in this file.
+## 1.10.1
+- Updated node packages
 ## 1.10.0
 - Added option to add secure flag to a cookie
 ## 1.9.1
