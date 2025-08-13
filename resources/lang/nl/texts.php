@@ -3,7 +3,7 @@
 return [
     'alert_accept' => 'Alle cookies aanvaarden',
     'alert_essentials_only' => 'Enkel essentiële cookies aanvaarden',
-    'alert_settings' => 'Je voorkeuren aanpassen',
+    'alert_settings' => 'Cookieinstellingen',
     'alert_text' => 'Door op "Alle cookies aanvaarden" te klikken ga je akkoord met het opslaan van onze cookies op je computer. Zo kunnen we een betere gebruikservaring bieden, en het laat ons toe om het gebruik van de website te analyseren. Door op "Je voorkeuren aanpassen" te klikken kan je kiezen welke cookies je toelaat. Enkel de essentiële cookies zijn noodzakelijk voor de goede werking van de website en kan je niet weigeren.',
     'alert_title' => 'Deze website gebruikt cookies',
     'alert_essential_only' => 'Enkel essentiële cookies aanvaarden',
