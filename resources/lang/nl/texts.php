@@ -20,5 +20,8 @@ return [
     'settings_close' => 'Sluiten',
     'settings_save' => 'Mijn keuze bewaren',
     'settings_title' => 'Cookievoorkeuren',
-    'settings_text' => 'Onze website bewaart vier soorten cookies. Je kan zelf op elk moment kiezen welke je aanvaardt en welke niet. Meer informatie over wat cookies zijn en welke types cookies we verzamelen kan je lezen in ons <a href=":policyUrl" target="_blank" >cookiebeleid</a>.'
+    'settings_text' => 'Onze website bewaart vier soorten cookies. Je kan zelf op elk moment kiezen welke je aanvaardt en welke niet. Meer informatie over wat cookies zijn en welke types cookies we verzamelen kan je lezen in ons <a href=":policyUrl" target="_blank" >cookiebeleid</a>.',
+    'filament' => [
+        'settings_text' => 'Onze website bewaart vier soorten cookies. Je kan zelf op elk moment kiezen welke je aanvaardt en welke niet. Meer informatie over wat cookies zijn en welke types cookies we verzamelen kan je lezen in ons <x-filament::link href=":policyUrl" target="_blank" >cookiebeleid</x-filament::link>.',
+    ]
 ];

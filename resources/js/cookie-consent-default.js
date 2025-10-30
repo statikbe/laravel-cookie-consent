@@ -34,7 +34,6 @@ window.cookieBannerConsentChange = (callback) => {
 };
 
 function initialize() {
-
     const ignoredPathsArray = ignoredPaths ? ignoredPaths.split(',').map(ignoredPath => ignoredPath.trim()) : [];
     const isIgnoredPage = ignoredPathsArray.indexOf(location.pathname) > -1;
 

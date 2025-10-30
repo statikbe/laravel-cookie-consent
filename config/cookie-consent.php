@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'theme' => 'default',
     'cookie_key' => '__cookie_consent',
     'cookie_value_analytics' => '2',
     'cookie_value_marketing' => '3',
