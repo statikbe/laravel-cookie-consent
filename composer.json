@@ -9,7 +9,13 @@
         }
     ],
     "homepage": "https://github.com/statikbe/laravel-cookie-consent",
-    "keywords": ["Laravel", "cookie", "gdpr"],
+    "keywords": [
+        "Laravel",
+        "cookie",
+        "gdpr",
+        "filament",
+        "cookie-banner"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.0",

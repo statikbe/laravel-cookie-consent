@@ -38,9 +38,14 @@ class CookieConsentMiddleware
 
         $closingBodyTagPosition = $this->getLastClosingBodyTagPosition($content);
 
+        $theme = config('cookie-consent.theme', 'default');
+        $themeSuffix = $theme === 'default'
+            ? ''
+            : '-'.$theme;
+
         $content = ''
             .substr($content, 0, $closingBodyTagPosition)
-            .view('cookie-consent::index-'.config('cookie-consent.theme', 'default'))->render()
+            .view('cookie-consent::index'.$themeSuffix)->render()
             .substr($content, $closingBodyTagPosition);
 
         return $response->setContent($content);
