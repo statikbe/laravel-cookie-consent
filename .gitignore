@@ -3,3 +3,11 @@
 /node_modules
 package-lock.json
 composer.lock
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+.yarnrc.yml
