@@ -181,7 +181,11 @@ This will read the policy urls from your env.
 
 ```php
 return [
-    'theme' => 'default'
+    /**
+     * Theme to use for the cookie consent popup.
+     * Available options: 'default', 'filament'.
+     */
+    'theme' => 'default',
     'cookie_key' => '__cookie_consent',
     'cookie_value_analytics' => '2',
     'cookie_value_marketing' => '3',
