@@ -49,10 +49,26 @@ First of all **you need to** publish the javascript and css files:
 php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="cookie-public"
 ```
 
-Include the css/cookie-consent.css into your base.blade.php or any other base template you use.
+When using the default theme, make sure to include the css/cookie-consent.css into your base.blade.php or any other base template you use.
 
 ```
 <link rel="stylesheet" type="text/css" href="{{asset("vendor/cookie-consent/css/cookie-consent.css")}}">
+```
+
+If you want to use the filament theme, make sure to source the blade files in your tailwind config
+
+tailwind v4:
+```css
+/* point to the actual vendor location */
+@source 'vendor/statikbe/laravel-cookie-consent/resources/**/*.blade.php';
+```
+tailwind v3 and below:
+```js
+export default {
+    content: [
+        'vendor/statikbe/laravel-cookie-consent/resources/**/*.blade.php';
+    ]
+}
 ```
 
 The javascript file is included in the cookie snippet and will be added at the end of your body.
