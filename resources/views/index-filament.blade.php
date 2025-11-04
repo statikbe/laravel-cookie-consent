@@ -124,4 +124,4 @@
     </x-filament::modal>
 </div>
 
-@vite('packages/laravel-cookie-consent/resources/js/cookie-consent-filament.js')
+<script type="text/javascript" src="{{ asset('vendor/cookie-consent/js/cookie-consent-filament.js') }}"></script>
