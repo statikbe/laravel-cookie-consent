@@ -12,11 +12,11 @@ class CookieConsentMiddleware
     {
         $response = $next($request);
 
-        if (!$response instanceof Response) {
+        if (! $response instanceof Response) {
             return $response;
         }
 
-        if (!$this->containsBodyTag($response)) {
+        if (! $this->containsBodyTag($response)) {
             return $response;
         }
 
@@ -32,21 +32,21 @@ class CookieConsentMiddleware
         return $this->getLastClosingBodyTagPosition($response->getContent()) !== false;
     }
 
-    /**
-     * @param Response $response
-     *
-     * @return Response
-     */
     protected function addCookieConsentScriptToResponse(Response $response): Response
     {
         $content = $response->getContent();
 
         $closingBodyTagPosition = $this->getLastClosingBodyTagPosition($content);
 
+        $theme = config('cookie-consent.theme', 'default');
+        $themeSuffix = $theme === 'default'
+            ? ''
+            : '-'.$theme;
+
         $content = ''
-            . substr($content, 0, $closingBodyTagPosition)
-            . view('cookie-consent::index')->render()
-            . substr($content, $closingBodyTagPosition);
+            .substr($content, 0, $closingBodyTagPosition)
+            .view('cookie-consent::index'.$themeSuffix)->render()
+            .substr($content, $closingBodyTagPosition);
 
         return $response->setContent($content);
     }
@@ -63,6 +63,7 @@ class CookieConsentMiddleware
                 return true;
             }
         }
+
         return false;
     }
 }

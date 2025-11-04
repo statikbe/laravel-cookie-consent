@@ -1,12 +1,7 @@
-
-import {
-    isHidden,
-    showElement,
-    hideElement,
-    getSiblings,
-} from './dom';
+import { isHidden, showElement, hideElement, getSiblings } from './dom';
 
 export function showModal(modal, ignoreBackdrop = false) {
+    $dispatch('open-modal', { id: 'cookie-consent-modal' });
 
     //  Make all sibling elements inert (not focusable)
     getSiblings(modal, ':not(.js-lcc-backdrop)').forEach((sibling) => {
@@ -23,7 +18,6 @@ export function showModal(modal, ignoreBackdrop = false) {
 }
 
 export function hideModal(modal, ignoreBackdrop = false) {
-
     getSiblings(modal, ':not(.js-lcc-modal)').forEach((sibling) => {
         sibling.inert = false;
     });
@@ -38,7 +32,6 @@ export function hideModal(modal, ignoreBackdrop = false) {
 }
 
 function fadeBackdrop() {
-
     const backdropElement = document.querySelector('.js-lcc-backdrop');
 
     if (isHidden(backdropElement)) {
@@ -52,7 +45,6 @@ function fadeBackdrop() {
     }
 
     function hideBackdrop() {
-
         hideElement(backdropElement);
 
         backdropElement.removeEventListener('transitionend', hideBackdrop);
