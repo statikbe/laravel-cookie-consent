@@ -6,10 +6,25 @@
             "name": "Kristof Serré",
             "email": "kristof@statik.be",
             "homepage": "https://www.statik.be"
+        },
+        {
+            "name": "Seppe Van Besauw",
+            "email": "seppe@statik.be",
+            "homepage": "https://www.statik.be"
         }
     ],
     "homepage": "https://github.com/statikbe/laravel-cookie-consent",
-    "keywords": ["Laravel", "cookie", "gdpr"],
+    "keywords": [
+        "Laravel",
+        "cookie",
+        "gdpr",
+        "Filament",
+        "cookie-banner",
+        "Google Tag Manager",
+        "privacy",
+        "GDPR",
+        "consent"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.0",
