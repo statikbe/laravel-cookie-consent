@@ -2,8 +2,8 @@
 
 namespace Statikbe\CookieConsent;
 
+use Filament\Facades\Filament;
 use Filament\Support\Facades\FilamentView;
-use Filament\View\PanelsRenderHook;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -15,9 +15,16 @@ class CookieConsentServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        $filamentInstalled = class_exists(Filament::class);
+
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'cookie-consent');
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'cookie-consent');
+
+        // Only register Filament views when Filament exists
+        if ($filamentInstalled) {
+            $this->loadViewsFrom(__DIR__.'/../resources/views-filament', 'cookie-consent-filament');
+        }
 
         $this->app['view']->composer('cookie-consent::index', function (View $view) {});
 
@@ -29,8 +36,7 @@ class CookieConsentServiceProvider extends ServiceProvider
         if (
             config('cookie-consent.theme') === 'filament'
             && config('cookie-consent.filament-nav-item-render-hook') !== null
-            && class_exists(FilamentView::class)
-            && class_exists(PanelsRenderHook::class)
+            && $filamentInstalled
         ) {
             FilamentView::registerRenderHook(
                 config('cookie-consent.filament-nav-item-render-hook'),
