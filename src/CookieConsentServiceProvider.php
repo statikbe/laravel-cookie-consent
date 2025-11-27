@@ -28,12 +28,12 @@ class CookieConsentServiceProvider extends ServiceProvider
 
         if (
             config('cookie-consent.theme') === 'filament'
-            && ! config('cookie-consent.disable_filament_nav_hook', false)
+            && config('cookie-consent.filament-nav-item-render-hook') !== null
             && class_exists(FilamentView::class)
             && class_exists(PanelsRenderHook::class)
         ) {
             FilamentView::registerRenderHook(
-                PanelsRenderHook::SIDEBAR_NAV_END,
+                config('cookie-consent.filament-nav-item-render-hook'),
                 fn () => view('cookie-consent::filament-nav-item'),
             );
         }
