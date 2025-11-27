@@ -2,7 +2,6 @@
 
 namespace Statikbe\CookieConsent;
 
-use Filament\Facades\Filament;
 use Filament\Support\Facades\FilamentView;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\ServiceProvider;
@@ -39,6 +38,7 @@ class CookieConsentServiceProvider extends ServiceProvider
 
         if (
             config('cookie-consent.filament-nav-item-render-hook') !== null
+            && class_exists(FilamentView::class)
             && $useFilament
         ) {
             FilamentView::registerRenderHook(
