@@ -57,16 +57,16 @@ document.addEventListener('alpine:init', () => {
         },
         // Helper functions
         openCookieConsentModal() {
-            this.$dispatch('open-modal', { id: 'cookie-consent-modal' });
+            this.$dispatch('open-modal', { id: this.COOKIE_CONSENT_MODAL_ID });
         },
         closeCookieConsentModal() {
-            this.$dispatch('close-modal', { id: 'cookie-consent-modal' });
+            this.$dispatch('close-modal', { id: this.COOKIE_CONSENT_MODAL_ID });
         },
         openCookieSettingsModal() {
-            this.$dispatch('open-modal', { id: 'cookie-consent-settings-modal' });
+            this.$dispatch('open-modal', { id: this.COOKIE_CONSENT_SETTINGS_MODAL_ID });
         },
         closeCookieSettingsModal() {
-            this.$dispatch('close-modal', { id: 'cookie-consent-settings-modal' });
+            this.$dispatch('close-modal', { id: this.COOKIE_CONSENT_SETTINGS_MODAL_ID });
         },
         initialize() {
             const ignoredPathsArray = this.IGNORED_PATHS

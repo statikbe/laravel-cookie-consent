@@ -3,7 +3,7 @@
         <ul class="fi-sidebar-group-items">
             <li class="fi-sidebar-item fi-sidebar-item-has-url">
                 <a
-                    @click="$dispatch('open-modal', { id: 'cookie-consent-settings-modal' })"
+                    @click="$dispatch('open-modal', { id: '{{ \Statikbe\CookieConsent\CookieConsentServiceProvider::COOKIE_CONSENT_SETTINGS_MODAL_ID }}' })"
                     href="#"
                     class="js-lcc-settings-toggle fi-sidebar-item-btn"
                 >
