@@ -10,6 +10,7 @@ use Illuminate\Support\ServiceProvider;
 class CookieConsentServiceProvider extends ServiceProvider
 {
     public const string COOKIE_CONSENT_MODAL_ID = 'cookie-consent-modal';
+
     public const string COOKIE_CONSENT_SETTINGS_MODAL_ID = 'cookie-consent-settings-modal';
 
     public function boot(): void
@@ -18,13 +19,17 @@ class CookieConsentServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'cookie-consent');
 
+        $this->publishes([
+            __DIR__.'/../resources/views/filament-nav-item.blade.php' => resource_path('views/vendor/cookie-consent/filament-nav-item.blade.php'),
+        ], 'cookie-consent-filament-nav-item');
+
         $this->app['view']->composer('cookie-consent::index', function (View $view) {});
 
         // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
-        
+
         if (
             config('cookie-consent.theme') === 'filament'
             && ! config('cookie-consent.disable_filament_nav_hook', false)
