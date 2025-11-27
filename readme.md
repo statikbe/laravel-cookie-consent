@@ -203,11 +203,12 @@ return [
      */
     'theme' => 'default',
     /**
-     * When using the filament theme we register 
-     * a navigation item in the sidebar that will
-     * open the cookie settings popup. Use this
-     * option to disable that.
+     * Filament render hook where the package will
+     * register a navigation item to show the cookie
+     * settings modal. 
+     * Set to null to disable this.
      */
+    'filament-nav-item-render-hook' => PanelsRenderHook::USER_MENU_PROFILE_AFTER,
     'disable_filament_nav_hook' => false,
     'cookie_key' => '__cookie_consent',
     'cookie_value_analytics' => '2',
