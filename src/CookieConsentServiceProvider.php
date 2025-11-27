@@ -13,17 +13,21 @@ class CookieConsentServiceProvider extends ServiceProvider
 
     public const string COOKIE_CONSENT_SETTINGS_MODAL_ID = 'cookie-consent-settings-modal';
 
+    public const string FILAMENT_THEME = 'filament';
+
+    public const string DEFAULT_THEME = 'default';
+
     public function boot(): void
     {
-        $filamentInstalled = class_exists(Filament::class);
+        $useFilament = config('cookie-consent.theme', self::DEFAULT_THEME) === self::FILAMENT_THEME;
 
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'cookie-consent');
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'cookie-consent');
-
         // Only register Filament views when Filament exists
-        if ($filamentInstalled) {
-            $this->loadViewsFrom(__DIR__.'/../resources/views-filament', 'cookie-consent-filament');
+        if ($useFilament) {
+            $this->loadViewsFrom(__DIR__.'/../resources/views-filament', 'cookie-consent');
+        } else {
+            $this->loadViewsFrom(__DIR__.'/../resources/views', 'cookie-consent');
         }
 
         $this->app['view']->composer('cookie-consent::index', function (View $view) {});
@@ -34,9 +38,8 @@ class CookieConsentServiceProvider extends ServiceProvider
         }
 
         if (
-            config('cookie-consent.theme') === 'filament'
-            && config('cookie-consent.filament-nav-item-render-hook') !== null
-            && $filamentInstalled
+            config('cookie-consent.filament-nav-item-render-hook') !== null
+            && $useFilament
         ) {
             FilamentView::registerRenderHook(
                 config('cookie-consent.filament-nav-item-render-hook'),
