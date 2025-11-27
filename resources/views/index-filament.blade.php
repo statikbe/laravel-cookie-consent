@@ -29,6 +29,10 @@
                     '{{ json_encode(config('cookie-consent.ignored_paths', [])) }}',
                 SESSION_DOMAIN: '{{ config('session.domain') }}',
                 COOKIE_SECURE: '{{ config('cookie-consent.cookie_secure', false) }}',
+                COOKIE_CONSENT_MODAL_ID:
+                    '{{ \Statikbe\CookieConsent\CookieConsentServiceProvider::COOKIE_CONSENT_MODAL_ID }}',
+                COOKIE_CONSENT_SETTINGS_MODAL_ID:
+                    '{{ \Statikbe\CookieConsent\CookieConsentServiceProvider::COOKIE_CONSENT_SETTINGS_MODAL_ID }}',
             })"
 >
     {{-- COOKIE CONSENT MODAL --}}
@@ -36,7 +40,7 @@
         :close-button="false"
         :close-by-escaping="false"
         :close-by-clicking-away="false"
-        id="cookie-consent-modal"
+        id="{{ \Statikbe\CookieConsent\CookieConsentServiceProvider::COOKIE_CONSENT_MODAL_ID }}"
         width="lg"
         heading="{{ $cookieModalHeading }}"
         description="{!! $cookieModalDescription !!}"
@@ -57,7 +61,11 @@
     </x-filament::modal>
 
     {{-- COOKIE SETTINGS MODAL --}}
-    <x-filament::modal id="cookie-consent-settings-modal" width="lg" heading="{{ $settingsModalHeading }}">
+    <x-filament::modal
+        id="{{ \Statikbe\CookieConsent\CookieConsentServiceProvider::COOKIE_CONSENT_SETTINGS_MODAL_ID }}"
+        width="lg"
+        heading="{{ $settingsModalHeading }}"
+    >
         <x-filament::modal.description class="-mt-4">
             {!! $settingsModalDescription !!}
         </x-filament::modal.description>

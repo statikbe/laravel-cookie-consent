@@ -1,11 +1,14 @@
 <?php
 
+use Filament\View\PanelsRenderHook;
+
 return [
     /**
      * Theme to use for the cookie consent popup.
      * Available options: 'default', 'filament'.
      */
     'theme' => 'default',
+    'filament-nav-item-render-hook' => PanelsRenderHook::USER_MENU_PROFILE_AFTER,
     'cookie_key' => '__cookie_consent',
     'cookie_value_analytics' => '2',
     'cookie_value_marketing' => '3',

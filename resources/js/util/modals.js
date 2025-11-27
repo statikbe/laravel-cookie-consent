@@ -1,8 +1,6 @@
 import { isHidden, showElement, hideElement, getSiblings } from './dom';
 
 export function showModal(modal, ignoreBackdrop = false) {
-    $dispatch('open-modal', { id: 'cookie-consent-modal' });
-
     //  Make all sibling elements inert (not focusable)
     getSiblings(modal, ':not(.js-lcc-backdrop)').forEach((sibling) => {
         sibling.inert = true;
