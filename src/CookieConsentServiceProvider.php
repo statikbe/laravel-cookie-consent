@@ -19,10 +19,6 @@ class CookieConsentServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'cookie-consent');
 
-        // $this->publishes([
-        //     __DIR__.'/../resources/views/filament-nav-item.blade.php' => resource_path('views/vendor/cookie-consent/filament-nav-item.blade.php'),
-        // ], 'cookie-consent-filament-nav-item');
-
         $this->app['view']->composer('cookie-consent::index', function (View $view) {});
 
         // Publishing is only necessary when using the CLI.
