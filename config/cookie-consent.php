@@ -6,6 +6,7 @@ return [
      * Available options: 'default', 'filament'.
      */
     'theme' => 'default',
+    'disable_filament_nav_hook' => false,
     'cookie_key' => '__cookie_consent',
     'cookie_value_analytics' => '2',
     'cookie_value_marketing' => '3',
