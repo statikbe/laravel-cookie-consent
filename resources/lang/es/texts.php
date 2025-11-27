@@ -21,4 +21,7 @@ return [
     'settings_save' => 'Guardar mi selección',
     'settings_title' => 'Configuración de cookies',
     'settings_text' => 'Nuestro sitio web almacena cuatro tipos de cookies. En cualquier momento puede elegir qué cookies acepta y cuáles rechaza. Puede obtener más información sobre qué son las cookies y qué tipos de cookies almacenamos en nuestra <a href=":policyUrl" target="_blank" class="underline hover:no-underline">Política de cookies</a>.',
+    'filament' => [
+        'settings_text' => 'Nuestro sitio web almacena cuatro tipos de cookies. En cualquier momento puede elegir qué cookies acepta y cuáles rechaza. Puede obtener más información sobre qué son las cookies y qué tipos de cookies almacenamos en nuestra <x-filament::link href=":policyUrl" target="_blank">política de cookies</x-filament::link>.',
+    ],
 ];
