@@ -74,6 +74,8 @@ export default {
 
 The javascript file is included in the cookie snippet and will be added at the end of your body.
 
+If you want to show the filament themed cookie banner outside of your filament panel, also make sure that you include the filament styles and scripts in your templates.
+
 ## Usage
 
 Instead of including a snippet in your view, we will automatically add it. This is done using middleware using two methods:
