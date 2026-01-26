@@ -17,6 +17,11 @@ return [
     'cookie_expiration_days' => '365',
     'gtm_event' => 'cookie_refresh',
     'ignored_paths' => [],
+    /**
+     * Skip cookie consent on error responses (4xx and 5xx status codes).
+     * Set to true if you want to disable cookie banner on error pages.
+     */
+    'skip_on_error_responses' => false,
     'cookie_secure' => env('COOKIE_CONSENT_SECURE', false),
     'policy_url_en' => env('COOKIE_POLICY_URL_EN', null),
     'policy_url_fr' => env('COOKIE_POLICY_URL_FR', null),

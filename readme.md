@@ -23,6 +23,7 @@ This only works when Google Tag Manager is correctly configured (some regex conf
     - [Customising the dialog contents](#customising-the-dialog-contents)
     - [Publishing](#publishing)
         - [Config](#config)
+        - [Skip cookie consent on error pages](#skip-cookie-consent-on-error-pages)
         - [Translations](#translations)
         - [Views](#views)
 - [Configure Google Tag Manager](#configure-google-tag-manager)
@@ -218,6 +219,11 @@ return [
     'cookie_expiration_days' => '365',
     'gtm_event' => 'pageview',
     'ignored_paths' => [],
+    /**
+     * Skip cookie consent on error responses (4xx and 5xx status codes).
+     * Set to true if you want to disable cookie banner on error pages.
+     */
+    'skip_on_error_responses' => false,
     'cookie_secure' => env('COOKIE_CONSENT_SECURE', false),
     'policy_url_en' => env('COOKIE_POLICY_URL_EN', null),
     'policy_url_fr' => env('COOKIE_POLICY_URL_FR', null),
@@ -233,6 +239,14 @@ If you don't want the modal to be shown on certain pages you can add the relativ
 
 ```
 'ignored_paths => ['/en/cookie-policy', '/api/documentation*'];
+```
+
+#### Skip cookie consent on error pages
+
+By default, the cookie consent banner is shown on error pages (404, 500, etc.). If you want to disable the banner on error responses, you can set this option to `true`:
+
+```
+'skip_on_error_responses' => true,
 ```
 
 #### Translations
