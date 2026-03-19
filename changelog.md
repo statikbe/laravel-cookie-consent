@@ -1,6 +1,21 @@
 # Changelog
 
 All notable changes to `Cookie Consent package` will be documented in this file.
+## 1.12.0
+- Updated to be compatible with Laravel 13
+## 1.11.5
+- Dependabot package bumps
+## 1.11.4
+- Added new config option to disable cookie modal on error pages
+## 1.11.3
+- Added missing translations for Filament
+## 1.11.2
+- Added Navigation item for filament panels
+## 1.11.1
+- Updated JavaScript import for Filament Theme
+## 1.11.0
+- Added support for Filament theme
+- Updated JS packages
 ## 1.10.1
 - Fixed wrong link to image
 ## 1.10.0
