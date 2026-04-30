@@ -267,6 +267,16 @@ php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServi
 
 All the steps to configure your Google Tag Manager can be found [here](docs/google-tag-manager.md).
 
+## Star History
+
+<a href="https://www.star-history.com/?repos=Statikbe%2Flaravel-cookie-consent&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=Statikbe/laravel-cookie-consent&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=Statikbe/laravel-cookie-consent&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=Statikbe/laravel-cookie-consent&type=date&legend=top-left" />
+ </picture>
+</a>
+
 ## Security
 
 If you discover any security related issues, please email [info@statik.be](mailto:info@statik.be) instead of using the issue tracker.
