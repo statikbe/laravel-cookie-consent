@@ -2,275 +2,298 @@
 
 # Laravel cookie consent modal
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/statikbe/laravel-cookie-consent.svg?style=flat-square)](https://packagist.org/packages/statikbe/llaravel-cookie-consent)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/statikbe/laravel-cookie-consent.svg?style=flat-square)](https://packagist.org/packages/statikbe/laravel-cookie-consent)
 [![Total Downloads](https://img.shields.io/packagist/dt/statikbe/laravel-cookie-consent.svg?style=flat-square)](https://packagist.org/packages/statikbe/laravel-cookie-consent)
 
 ![Modal cookie consent](docs/img/modal.png?raw=true 'Modal for Cookie consent')
 
 ![Preferences Modal](docs/img/preferences.png?raw=true 'Preferences for cookies')
 
-The package includes a script & styling for a cookie banner and a modal where the visitor can select his/her cookie preferences.
+Cookie banner and preferences modal for Laravel. Visitors choose which cookie categories they accept; Google Tag Manager reads the resulting cookie to decide which tags fire. Based on [spatie/laravel-cookie-consent](https://github.com/spatie/laravel-cookie-consent) with added per-category consent.
 
-This package is mainly based on the one from spatie: https://github.com/spatie/laravel-cookie-consent
+## Requirements
 
-With the only exception that you can choose which cookies you enable.
-This only works when Google Tag Manager is correctly configured (some regex config based on the value set in the cookie).
-
-- [Upgrading](upgrading.md)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Customising the dialog texts](#customising-the-dialog-texts)
-    - [Customising the dialog contents](#customising-the-dialog-contents)
-    - [Publishing](#publishing)
-        - [Config](#config)
-        - [Skip cookie consent on error pages](#skip-cookie-consent-on-error-pages)
-        - [Translations](#translations)
-        - [Views](#views)
-- [Configure Google Tag Manager](#configure-google-tag-manager)
-- [Security](#security)
-- [License](#license)
+| Laravel | PHP  |
+|---------|------|
+| 10–13   | 8.0+ |
 
 ## Upgrading
 
-You can find our upgrading guides [here](upgrading.md).
+See [upgrading.md](upgrading.md).
+
+## Table of contents
+
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Filament Integration](#filament-integration)
+- [Customisation](#customisation)
+- [Google Tag Manager](#google-tag-manager)
+- [Security](#security)
+- [License](#license)
 
 ## Installation
 
-You can install the package via composer:
+### 1. Install via Composer
 
 ```bash
 composer require statikbe/laravel-cookie-consent
 ```
 
-The package will automatically register itself.
+The package registers itself automatically.
 
-First of all **you need to** publish the javascript and css files:
+### 2. Register the middleware
+
+**Laravel 11 and later** — in `bootstrap/app.php`:
+
+```php
+->withMiddleware(function (Middleware $middleware) {
+    $middleware->web(append: [
+        \Statikbe\CookieConsent\CookieConsentMiddleware::class,
+    ]);
+})
+```
+
+Or as a named alias:
+
+```php
+->withMiddleware(function (Middleware $middleware) {
+    $middleware->alias([
+        'cookie-consent' => \Statikbe\CookieConsent\CookieConsentMiddleware::class,
+    ]);
+})
+```
+
+**Laravel 10 and earlier** — in `app/Http/Kernel.php`:
+
+```php
+protected $middlewareGroups = [
+    'web' => [
+        // ...
+        \Statikbe\CookieConsent\CookieConsentMiddleware::class,
+    ],
+];
+```
+
+Or as a named middleware applied to specific routes:
+
+```php
+// app/Http/Kernel.php
+protected $routeMiddleware = [
+    'cookie-consent' => \Statikbe\CookieConsent\CookieConsentMiddleware::class,
+];
+
+// routes/web.php
+Route::middleware('cookie-consent')->group(function () {
+    // ...
+});
+```
+
+The middleware injects the cookie consent snippet into every HTML response before the closing `</body>` tag.
+
+### 3. Publish the assets
 
 ```bash
 php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="cookie-public"
 ```
 
-When using the default theme, make sure to include the css/cookie-consent.css into your base.blade.php or any other base template you use.
+### 4. Include the stylesheet (default theme only)
 
-```
-<link rel="stylesheet" type="text/css" href="{{asset("vendor/cookie-consent/css/cookie-consent.css")}}">
-```
-
-If you want to use the filament theme, make sure to source the blade files in your tailwind config
-
-tailwind v4:
-```css
-/* point to the actual vendor location */
-@source 'vendor/statikbe/laravel-cookie-consent/resources/**/*.blade.php';
-```
-tailwind v3 and below:
-```js
-export default {
-    content: [
-        'vendor/statikbe/laravel-cookie-consent/resources/**/*.blade.php';
-    ]
-}
-```
-
-The javascript file is included in the cookie snippet and will be added at the end of your body.
-
-If you want to show the filament themed cookie banner outside of your filament panel, also make sure that you include the filament styles and scripts in your templates.
-
-## Usage
-
-Instead of including a snippet in your view, we will automatically add it. This is done using middleware using two methods:
-
-**For Laravel 11.x and newer**
-
-```php
-// bootstrap/app.php
-
-->withMiddleware(function (Middleware $middleware) {
-    ...
-    $middleware->web(append: [
-        ...
-        \Statikbe\CookieConsent\CookieConsentMiddleware::class,
-    ]);
-
-// OR AS AN ALIAS
-
-    $middleware->alias([
-        ...
-        'cookie-consent' => \Statikbe\CookieConsent\CookieConsentMiddleware::class,
-    ]);
-})
-
-```
-
-**For Laravel 10.x and earlier**
-
-```php
-// app/Http/Kernel.php
-
-class Kernel extends HttpKernel
-{
-    protected $middleware = [
-        // ...
-        \Statikbe\CookieConsent\CookieConsentMiddleware::class,
-    ];
-
-     protected $routeMiddleware = [
-        // ...
-        'cookie-consent' => \Statikbe\CookieConsent\CookieConsentMiddleware::class,
-    ];
-
-
-// routes/web.php
-Route::group([
-    'middleware' => ['cookie-consent']
-], function(){
-    // ...
-});
-}
-```
-
-This will add `cookieConsent::index` to the content of your response right before the closing body tag.
-
-## Customising the dialog texts
-
-If you want to modify the text shown in the dialog you can publish the lang-files with this command:
-
-```bash
-php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="cookie-lang"
-```
-
-This will publish this file to `resources/lang/vendor/cookieConsent/en/texts.php`.
-
-```php
-
-return [
-    'alert_title' => 'Deze website gebruikt cookies',
-    'setting_analytics' => 'Analytische cookies',
-];
-```
-
-If you want to translate the values to, for example, English, just copy that file over to `resources/lang/vendor/cookieConsent/fr/texts.php` and fill in the English translations.
-
-### Customising the dialog contents
-
-If you need full control over the contents of the dialog. You can publish the views of the package:
-
-```bash
-php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="cookie-views"
-```
-
-This will copy the `index` view file over to `resources/views/vendor/cookieConsent`.
-
-The `cookie-settings` view file is just a snippet you need to place somewhere onto your page. Most preferably in the footer next to the url of your cookie policy.
+Add this to your base template. Skip this step if you are using the Filament theme — see [Filament Integration](#filament-integration).
 
 ```html
-<a href="javascript:void(0)" class="js-lcc-settings-toggle">@lang('cookie-consent::texts.alert_settings')</a>
+<link rel="stylesheet" type="text/css" href="{{ asset('vendor/cookie-consent/css/cookie-consent.css') }}">
 ```
 
-This gives your visitor the opportunity to change the settings again.
+## Configuration
 
-### Customising the theme
-
-By default, the cookie popup will look like this:
-
-![screenshot of default theme](./assets/screenshot-default.png)
-
-If you are however working on a project that is using filament, you can opt to use filament componets to render your cookie popup.
-
-To do this, configure the theme to `filament`
-
-```
-'theme' => 'filament'
-```
-
-This will render the cookie popup like so:
-
-![screenshot of filament theme](./assets/screenshot-filament.png)
-
-### Publishing
-
-#### Config
+Publish the config file:
 
 ```bash
 php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="cookie-config"
 ```
 
-This is the contents of the published config-file:
-This will read the policy urls from your env.
+`config/cookie-consent.php`:
 
 ```php
 return [
-    /**
-     * Theme to use for the cookie consent popup.
-     * Available options: 'default', 'filament'.
+    /*
+     * Theme for the cookie consent popup.
+     * Options: 'default', 'filament'
      */
     'theme' => 'default',
-    /**
-     * Filament render hook where the package will
-     * register a navigation item to show the cookie
-     * settings modal. 
-     * Set to null to disable this.
+
+    /*
+     * Filament render hook used to register the cookie settings nav item.
+     * Set to null to disable the nav item entirely.
+     * See: Filament Integration > Nav item
      */
-    'filament-nav-item-render-hook' => PanelsRenderHook::USER_MENU_PROFILE_AFTER,
-    'disable_filament_nav_hook' => false,
+    'filament-nav-item-render-hook' => \Filament\View\PanelsRenderHook::USER_MENU_PROFILE_AFTER,
+
+    /*
+     * Name of the cookie written to the browser.
+     * If you change this, update the GTM variable name to match.
+     */
     'cookie_key' => '__cookie_consent',
+
+    /*
+     * Values written to the cookie for each consent choice.
+     *
+     *   analytics only  => '2'
+     *   marketing only  => '3'
+     *   both accepted   => 'true'
+     *   none accepted   => 'false'
+     *
+     * GTM reads this value with regex triggers to decide which tags fire.
+     * If you change these values, update your GTM triggers to match.
+     */
     'cookie_value_analytics' => '2',
     'cookie_value_marketing' => '3',
     'cookie_value_both' => 'true',
     'cookie_value_none' => 'false',
+
     'cookie_expiration_days' => '365',
-    'gtm_event' => 'pageview',
+
+    /*
+     * GTM custom event fired after the visitor saves their preferences.
+     */
+    'gtm_event' => 'cookie_refresh',
+
+    /*
+     * Relative paths where the cookie banner is suppressed.
+     * Accepts wildcards via Str::is() — e.g. '/api/*', '/en/cookie-policy'.
+     */
     'ignored_paths' => [],
-    /**
-     * Skip cookie consent on error responses (4xx and 5xx status codes).
-     * Set to true if you want to disable cookie banner on error pages.
+
+    /*
+     * Set to true to suppress the banner on 4xx/5xx error pages.
      */
     'skip_on_error_responses' => false,
+
+    /*
+     * Mark the consent cookie as Secure (HTTPS only).
+     * Reads from the COOKIE_CONSENT_SECURE env variable.
+     */
     'cookie_secure' => env('COOKIE_CONSENT_SECURE', false),
+
+    /*
+     * Cookie policy page URLs shown in the banner.
+     * Read from env — add only the locales your site supports.
+     */
     'policy_url_en' => env('COOKIE_POLICY_URL_EN', null),
     'policy_url_fr' => env('COOKIE_POLICY_URL_FR', null),
     'policy_url_nl' => env('COOKIE_POLICY_URL_NL', null),
 ];
 ```
 
-You can customize some settings that work with your GTM.
+### Hiding the banner on specific pages
 
-#### Don't show modal on cookie policy page or other pages
-
-If you don't want the modal to be shown on certain pages you can add the relative url to the ignored paths setting. This also accepts wildcards (see the Laravel `Str::is()` [helper](https://laravel.com/docs/9.x/helpers#method-str-is)).
-
-```
-'ignored_paths => ['/en/cookie-policy', '/api/documentation*'];
+```php
+'ignored_paths' => ['/en/cookie-policy', '/api/documentation*'],
 ```
 
-#### Skip cookie consent on error pages
+Wildcards use Laravel's [`Str::is()`](https://laravel.com/docs/helpers#method-str-is) matching.
 
-By default, the cookie consent banner is shown on error pages (404, 500, etc.). If you want to disable the banner on error responses, you can set this option to `true`:
+### Hiding the banner on error pages
 
-```
+```php
 'skip_on_error_responses' => true,
 ```
 
-#### Translations
+## Filament Integration
+
+If your project uses [Filament](https://filamentphp.com), you can render the cookie banner using Filament components instead of the default styled theme.
+
+### 1. Enable the Filament theme
+
+```php
+// config/cookie-consent.php
+'theme' => 'filament',
+```
+
+This will render the cookie popup using Filament components:
+
+![screenshot of filament theme](./assets/screenshot-filament.png)
+
+The default theme looks like this for comparison:
+
+![screenshot of default theme](./assets/screenshot-default.png)
+
+### 2. Configure Tailwind to scan the package views
+
+**Tailwind v4** — in your main CSS file:
+
+```css
+@source 'vendor/statikbe/laravel-cookie-consent/resources/**/*.blade.php';
+```
+
+**Tailwind v3** — in `tailwind.config.js`:
+
+```js
+export default {
+    content: [
+        'vendor/statikbe/laravel-cookie-consent/resources/**/*.blade.php',
+    ]
+}
+```
+
+### 3. Filament styles outside the panel
+
+If you display the cookie banner on pages that are not inside a Filament panel, include Filament's CSS and JS in those page templates.
+
+### 4. Cookie settings nav item
+
+When the Filament theme is active, the package registers a "Cookie settings" link in the Filament user menu. The position is controlled by `filament-nav-item-render-hook`, which defaults to after the profile menu item.
+
+To change the position, set a different render hook value:
+
+```php
+'filament-nav-item-render-hook' => \Filament\View\PanelsRenderHook::SIDEBAR_NAV_END,
+```
+
+To remove the nav item entirely:
+
+```php
+'filament-nav-item-render-hook' => null,
+```
+
+## Customisation
+
+### Translations
+
+Publish the language files:
 
 ```bash
 php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="cookie-lang"
 ```
 
-#### Views
+Files land in `lang/vendor/cookie-consent/{locale}/texts.php`. To add a new locale, copy the `en` directory to the target locale and translate the strings.
+
+### Views
+
+Publish the view files:
 
 ```bash
 php artisan vendor:publish --provider="Statikbe\CookieConsent\CookieConsentServiceProvider" --tag="cookie-views"
 ```
 
-## Configure Google Tag Manager
+Files land in `resources/views/vendor/cookie-consent`.
 
-All the steps to configure your Google Tag Manager can be found [here](docs/google-tag-manager.md).
+To let visitors re-open the preferences modal (e.g. from your footer next to the cookie policy link):
+
+```html
+<a href="javascript:void(0)" class="js-lcc-settings-toggle">
+    @lang('cookie-consent::texts.alert_settings')
+</a>
+```
+
+## Google Tag Manager
+
+Set up GTM to read the consent cookie and control which tags fire. Full setup instructions: [docs/google-tag-manager.md](docs/google-tag-manager.md).
 
 ## Security
 
-If you discover any security related issues, please email [info@statik.be](mailto:info@statik.be) instead of using the issue tracker.
+If you discover a security issue, please email [info@statik.be](mailto:info@statik.be) instead of using the issue tracker.
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](license.md) for more information.

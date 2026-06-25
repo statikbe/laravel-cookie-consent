@@ -1,5 +1,11 @@
 # How to configure Google Tag Manager
 
+> **Note:** Google Universal Analytics (UA) was sunset in July 2024.
+> These steps apply to GA4 (Google Analytics 4) containers.
+> The consent trigger and variable configuration is identical — only the tag type differs.
+> Where these instructions reference a "Google Analytics: Universal Analytics" tag,
+> use "Google Analytics: GA4 Configuration" or "Google Analytics: GA4 Event" instead.
+
 ## Step 1: Create new variable
 - Name: `GDPR Consent level` 
 - Variable type: 1st Party Cookie
@@ -30,7 +36,8 @@ _Exceptions on a trigger_
 It's possible that there are no tags created yet. If that's the case, create a new one (click right top 'new')
 Give it the name `Google Analytics` (Or you can give this another name, but keep that in mind when you follow the next steps).
  
- For Tag Type you choose `Google Analytics: Universal Analytics`.
+ For Tag Type choose `Google Analytics: GA4 Configuration` (or `GA4 Event` for event tags).
+The existing screenshot shows the old Universal Analytics interface — the principle is the same for GA4.
 ![Create tag](img/step3.png?raw=true "Create tag")
 _Tag with some settings already set after config_
 
