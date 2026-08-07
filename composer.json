@@ -27,8 +27,8 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.0",
-        "illuminate/http": "^10.0|^11.0|^12|^13"
+        "php": "^8.2",
+        "illuminate/http": "^12|^13"
     },
     "autoload": {
         "psr-4": {

@@ -1,6 +1,9 @@
 # Changelog
 
 All notable changes to `Cookie Consent package` will be documented in this file.
+## 2.0.0
+- Added Laravel boost skill
+- Set minimum requirements to laravel 12
 ## 1.12.0
 - Updated to be compatible with Laravel 13
 ## 1.11.5
