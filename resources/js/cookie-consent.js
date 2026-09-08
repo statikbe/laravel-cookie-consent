@@ -8,7 +8,6 @@ import 'wicg-inert';
 
 const modalAlert = document.querySelector('.js-lcc-modal-alert');
 const modalSettings = document.querySelector('.js-lcc-modal-settings');
-const modalSettingsTrigger = document.querySelector('button.js-lcc-settings-toggle');
 const backdrop = document.querySelector('.js-lcc-backdrop');
 const checkboxAnalytics = document.getElementById('lcc-checkbox-analytics');
 const checkboxMarketing = document.getElementById('lcc-checkbox-marketing');
@@ -26,6 +25,7 @@ const COOKIE_SECURE = !!modalAlert.dataset.cookieSecure;
 const ignoredPaths = modalAlert.dataset.ignoredPaths || null;
 
 let onConsentChange;
+let modalSettingsTrigger;
 
 initialize();
 
@@ -48,6 +48,11 @@ function initialize() {
     initSettings();
 
     addEventListener('click', '.js-lcc-settings-toggle', function () {
+
+        //  Remember the trigger that opened the modal, so focus can return to it on close.
+        if (!modalSettings || isHidden(modalSettings)) {
+            modalSettingsTrigger = this;
+        }
 
         toggleModalSettings();
     });
@@ -117,7 +122,9 @@ function toggleModalSettings() {
             showModal(modalAlert, true);
         }
 
-        modalSettingsTrigger.focus();
+        if (modalSettingsTrigger) {
+            modalSettingsTrigger.focus();
+        }
     }
 }
 

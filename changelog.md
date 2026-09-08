@@ -1,6 +1,10 @@
 # Changelog
 
 All notable changes to `Cookie Consent package` will be documented in this file.
+## Unreleased
+- Changed the cookie settings triggers from `<a href="javascript:void(0)">`/`<a href="#">` to `<button type="button">` (readme snippet, demo page and the Filament navigation item)
+- Focus now returns to the settings trigger that was actually clicked when the settings modal closes
+- Added `rel="noopener noreferrer"` to the cookie policy link in `settings_text` and made its markup consistent across all locales
 ## 1.12.0
 - Updated to be compatible with Laravel 13
 ## 1.11.5
