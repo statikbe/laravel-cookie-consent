@@ -281,9 +281,9 @@ Files land in `resources/views/vendor/cookie-consent`.
 To let visitors re-open the preferences modal (e.g. from your footer next to the cookie policy link):
 
 ```html
-<a href="javascript:void(0)" class="js-lcc-settings-toggle">
+<button type="button" class="js-lcc-settings-toggle">
     @lang('cookie-consent::texts.alert_settings')
-</a>
+</button>
 ```
 
 ## Google Tag Manager

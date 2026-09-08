@@ -20,8 +20,8 @@ return [
     'settings_close' => 'Tampar',
     'settings_save' => 'Enregistrar ma seleccion',
     'settings_title' => 'Paramètres de cookie',
-    'settings_text' => 'Nòstre site web salva quatre tipes de cookies. Quand volètz podètz causir quines cookies autorizatz e los refusatz. Podètz ne legir mai a prepaus dels cookies e de çò que enregistram dins nòstra <a href=":policyUrl" target="_blank" class="underline hover:no-underline">Politica de confidencialitat</a>.',
+    'settings_text' => 'Nòstre site web salva quatre tipes de cookies. Quand volètz podètz causir quines cookies autorizatz e los refusatz. Podètz ne legir mai a prepaus dels cookies e de çò que enregistram dins nòstra <a href=":policyUrl" target="_blank" rel="noopener noreferrer" class="underline hover:no-underline">Politica de confidencialitat</a>.',
     'filament' => [
-        'settings_text' => 'Nòstre site web salva quatre tipes de cookies. Quand volètz podètz causir quines cookies autorizatz e los refusatz. Podètz ne legir mai a prepaus dels cookies e de çò que enregistram dins nòstra <x-filament::link href=":policyUrl" target="_blank">politica de cookies</x-filament::link>.',
+        'settings_text' => 'Nòstre site web salva quatre tipes de cookies. Quand volètz podètz causir quines cookies autorizatz e los refusatz. Podètz ne legir mai a prepaus dels cookies e de çò que enregistram dins nòstra <x-filament::link href=":policyUrl" target="_blank" rel="noopener noreferrer">politica de cookies</x-filament::link>.',
     ],
 ];

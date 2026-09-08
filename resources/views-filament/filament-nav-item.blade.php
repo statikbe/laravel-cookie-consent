@@ -1,6 +1,6 @@
-<a
+<button
+    type="button"
     class="fi-dropdown-list-item fi-ac-grouped-action js-lcc-settings-toggle"
-    href="#"
     @click="$dispatch('open-modal', { id: '{{ \Statikbe\CookieConsent\CookieConsentServiceProvider::COOKIE_CONSENT_SETTINGS_MODAL_ID }}' })"
 >
     <svg
@@ -16,4 +16,4 @@
     </svg>
 
     <span class="fi-dropdown-list-item-label">@lang('cookie-consent::texts.alert_settings')</span>
-</a>
+</button>
